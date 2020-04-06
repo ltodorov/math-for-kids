@@ -1,0 +1,19 @@
+{
+  "name": "math-for-kids",
+  "version": "1.0.0",
+  "description": "A web page where kids can train their Math skills",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltodorov/math-for-kids.git"
+  },
+  "author": "Lyubomir Todorov",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ltodorov/math-for-kids/issues"
+  },
+  "homepage": "https://github.com/ltodorov/math-for-kids#readme"
+}
