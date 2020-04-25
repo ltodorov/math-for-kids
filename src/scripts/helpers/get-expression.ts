@@ -1,16 +1,17 @@
-import getOperator, { ArithmeticSign } from "./get-operator";
-import getMaxNumber from "./get-max-number";
-import getRandomNumber from "./get-random-number";
+import { ParsedQuery } from "./get-parsed-query-params";
+import { ArithmeticSign, getOperator } from "./get-operator";
+import { getMaxInteger } from "./get-max-integer";
+import { getRandomInteger } from "./get-random-integer";
 
 export interface Expression {
     /**
-     * First number in the expression
+     * First integer of the expression
      */
-    num1: number;
+    term1: number;
     /**
-     * Second number in the expression
+     * Second integer of the expression
      */
-    num2: number;
+    term2: number;
     /**
      * Arithmetic operator
      */
@@ -19,19 +20,17 @@ export interface Expression {
 
 /**
  * Get a random expression
- * @param search {string} a search string also known as a query string
+ * @param {Object.<string, number>} queryParams The parsed URL query params
  */
-function getExpression(search: string): Expression {
-    const operator = getOperator(search);
+export function getExpression(queryParams: ParsedQuery): Expression {
+    const operator = getOperator(queryParams.operatorIndex);
     const isSubstraction = operator === "-";
-    const max = getMaxNumber(search);
-    const num1 = getRandomNumber(max);
-    const num2 = getRandomNumber(max);
+    const max = getMaxInteger(queryParams.term || queryParams.max);
+    const term1 = typeof queryParams.term === "number" ? max : getRandomInteger(max);
+    const term2 = getRandomInteger(max);
     return {
-        num1: isSubstraction ? Math.max(num1, num2) : num1,
-        num2: isSubstraction ? Math.min(num1, num2) : num2,
+        term1: isSubstraction ? Math.max(term1, term2) : term1,
+        term2: isSubstraction ? Math.min(term1, term2) : term2,
         operator
     };
 }
-
-export default getExpression;
