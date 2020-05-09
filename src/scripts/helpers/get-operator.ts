@@ -1,7 +1,7 @@
 /**
  * Standard arithmetic operators
  */
-export type ArithmeticSign = "+" | "-" | "*";
+type ArithmeticSign = "+" | "-" | "*";
 
 const OPERATORS: ArithmeticSign[] = ["+", "-", "*"];
 
@@ -12,10 +12,15 @@ const OPERATORS: ArithmeticSign[] = ["+", "-", "*"];
  * If the operatorIndex is greater than OPERATORS.length it returns "*"
  * @param {number} [operatorIndex] Index of the operator in ["+", "-", "*"]
  */
-export function getOperator(operatorIndex?: number): ArithmeticSign {
+function getOperator(operatorIndex?: number): ArithmeticSign {
     const length = OPERATORS.length;
     const index = typeof operatorIndex === "number" ?
         Math.min(operatorIndex, length - 1) :
         Math.round(Math.random());
     return OPERATORS[index];
 }
+
+export {
+    ArithmeticSign,
+    getOperator
+};

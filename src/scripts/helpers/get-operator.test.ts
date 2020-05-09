@@ -3,7 +3,6 @@ import { getOperator } from "./get-operator";
 describe("getOperator", () => {
     describe("based on an index", () => {
         test("should return +", () => {
-            Math.random = jest.fn(() => 1);
             expect(getOperator(0)).toBe("+");
         });
 

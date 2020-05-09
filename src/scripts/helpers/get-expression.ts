@@ -3,7 +3,7 @@ import { ArithmeticSign, getOperator } from "./get-operator";
 import { getMaxInteger } from "./get-max-integer";
 import { getRandomInteger } from "./get-random-integer";
 
-export interface Expression {
+interface Expression {
     /**
      * First integer of the expression
      */
@@ -22,7 +22,7 @@ export interface Expression {
  * Get a random expression
  * @param {Object.<string, number>} queryParams The parsed URL query params
  */
-export function getExpression(queryParams: ParsedQuery): Expression {
+function getExpression(queryParams: ParsedQuery): Expression {
     const operator = getOperator(queryParams.operatorIndex);
     const isSubstraction = operator === "-";
     const max = getMaxInteger(queryParams.term || queryParams.max);
@@ -34,3 +34,8 @@ export function getExpression(queryParams: ParsedQuery): Expression {
         operator
     };
 }
+
+export {
+    Expression,
+    getExpression
+};

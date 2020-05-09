@@ -1,10 +1,10 @@
-export type ParsedQuery = Record<string, number>;
+type ParsedQuery = Record<string, number>;
 
 /**
  * Parse a URL query string
  * @param {string} search The query string
  */
-export function getParsedQueryParams(search: string): ParsedQuery {
+function getParsedQueryParams(search: string): ParsedQuery {
     const withoutLeading = search.slice(1); // Remove the leading "?"
     const splitQuery = withoutLeading.split("&");
     const parsedQuery: ParsedQuery = splitQuery.reduce((acc: ParsedQuery, str: string) => {
@@ -16,3 +16,8 @@ export function getParsedQueryParams(search: string): ParsedQuery {
     }, {});
     return parsedQuery;
 }
+
+export {
+    ParsedQuery,
+    getParsedQueryParams
+};

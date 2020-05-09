@@ -16,10 +16,14 @@ const OPERATIONS: Record<ArithmeticSign, Formula> = {
  * @param {number} exp.term1
  * @param {number} exp.term2
  */
-export function calculate(exp: Expression): number {
+function calculate(exp: Expression): number {
     const formula = OPERATIONS[exp.operator];
     if (typeof formula !== "function") {
         throw new Error("Unsupported operation!");
     }
     return formula(exp.term1, exp.term2);
 }
+
+export {
+    calculate
+};
