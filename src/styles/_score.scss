@@ -1,0 +1,19 @@
+.score {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto max-content max-content;
+    grid-gap: 1em;
+    justify-content: end;
+}
+
+.score__item {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.score__item--ok {
+    color: #32cd32;
+}
+
+.score__item--wrong {
+    color: #dc143c;
+}

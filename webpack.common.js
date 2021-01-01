@@ -1,9 +1,10 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const lang = require("./languages/bg.json");
 
 module.exports = {
-  entry: "./src/scripts/app.ts",
+  entry: "./src/scripts/main.ts",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
@@ -13,6 +14,14 @@ module.exports = {
     rules: [{
       test: /\.(png|jpe?g|gif|svg|webp)$/i,
       type: "asset/resource"
+    }, {
+      test: /\.hbs$/i,
+      use: [{
+        loader: "handlebars-loader",
+        options: {
+          inlineRequires: "@images"
+        }
+      }]
     }, {
       test: /\.tsx?$/i,
       use: "ts-loader"
@@ -29,7 +38,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.hbs",
+      templateParameters: lang
     })
   ]
 };

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{description}}">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div class="site">
+        <header class="site__header heading" role="banner">
+            <img class="heading__image" id="monster" src="@images/monsters/cowardly.svg" alt="{{monster.alt}}" width="80"
+                height="80" loading="lazy">
+            <h1>{{title}}</h1>
+        </header>
+
+        <main class="site__main" role="main">
+            <aside class="site__aside" role="complementary">
+                <progress class="progress" id="progress" max="21" value="1"></progress>
+
+                <p class="score">
+                    {{score}}:
+                    <strong class="score__item score__item--ok" id="correct">0</strong>
+                    <strong class="score__item score__item--wrong" id="wrong">0</strong>
+                </p>
+            </aside>
+
+            <article class="content">
+                <h2 class="title">{{task.title}}</h2>
+
+                <form class="math" method="POST">
+                    <label for="term1" hidden>{{task.term1}}</label>
+                    <input type="text" class="math__num" name="term1" id="term-1" disabled>
+                    <span class="math__sign" name="operator" id="operator">+</span>
+                    <label for="term2" hidden>{{task.term2}}</label>
+                    <input type="text" class="math__num" name="term2" id="term-2" disabled>
+                    <span class="math__sign math__sign--equal">=</span>
+                    <label for="answer" hidden>{{task.answer}}</label>
+                    <input type="text" class="math__num" name="answer" id="answer" placeholder="?" autocomplete="off"
+                        inputmode="numeric">
+                    <button type="submit" class="math__btn" id="submit">
+                        {{buttons.next}}
+                    </button>
+                </form>
+            </article>
+        </main>
+
+        <footer class="site__footer" role="contentinfo">
+            <p class="credits">
+                {{credits.background.text}} <a title="Unsplash" href="https://unsplash.com/photos/asviIGR3CPE">{{credits.background.authors}}</a>.
+                {{credits.monsters.text}} <a title="Freepik" href="https://www.freepik.com">{{credits.monsters.authors}}</a>.
+            </p>
+            <p class="copyright">
+                {{authors}} &copy; <span id="year">2021</span>
+                <a href="/LICENSE" title="{{license}}">GPL-3.0-or-later</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

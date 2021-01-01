@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background: var(--main-back-color) var(--main-back-url) no-repeat var(--main-back-position);
+    background-size: cover;
+    color: var(--main-front-color);
+    font-family: var(--main-font-family);
+    line-height: 1.25;
+}
+
+a {
+    color: var(--main-front-color);
+}

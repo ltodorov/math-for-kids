@@ -1,0 +1,22 @@
+.site {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 1em;
+    max-width: 40em;
+    min-height: 100vh;
+}
+
+.site__header {
+    flex: none;
+}
+
+.site__main {
+    flex: auto;
+}
+
+.site__footer {
+    flex: none;
+    font-size: 0.75em;
+    text-align: center;
+}

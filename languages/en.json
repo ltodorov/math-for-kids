@@ -1,0 +1,30 @@
+{
+    "lang": "en",
+    "title": "Math for kids",
+    "description": "A web page where kids can train their Math skills",
+    "monster": {
+        "alt": "An image of a cute monster"
+    },
+    "score": "Score",
+    "task": {
+        "title": "Solve the task",
+        "term1": "Term 1",
+        "term2": "Term 2",
+        "answer": "Answer"
+    },
+    "buttons": {
+        "next": "Next"
+    },
+    "credits": {
+        "background": {
+            "text": "Background image by",
+            "authors": "Debby Hudson"
+        },
+        "monsters": {
+            "text": "Monster images by",
+            "authors": "vectorpouch"
+        }
+    },
+    "authors": "Lyubomir Todorov",
+    "license": "License"
+}

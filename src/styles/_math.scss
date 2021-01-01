@@ -1,0 +1,42 @@
+.math {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 0.625em;
+
+    @media screen and (min-width: "40em") {
+        justify-content: flex-start;
+    }
+}
+
+.math__num {
+    border: 1px solid #cacaca;
+    padding: 0.375em 0.125em;
+    width: 2em;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    background: transparent;
+    color: #fff;
+    text-align: center;
+
+    &:disabled {
+        border-color: #6a6a6a;
+    }
+}
+
+.math__sign {
+    font-size: 2.4em;
+}
+
+.math__btn {
+    margin: 1em 0;
+    border: 0;
+    padding: 0.5em;
+    width: 100%;
+    font-size: 1.25em;
+    line-height: 1.2;
+    grid-column-start: span 5;
+}
