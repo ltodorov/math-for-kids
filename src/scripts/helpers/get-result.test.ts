@@ -1,9 +1,10 @@
-import { calculate } from "./calculate";
-import { ArithmeticSign } from "./get-operator";
+import { getResult } from "./get-result";
+import { ArithmeticSign } from "@scripts/types";
+import { ERROR } from "@scripts/dicts/errors";
 
-describe("calculate", () => {
+describe("getResult", () => {
     test("should return sum", () => {
-        expect(calculate({
+        expect(getResult({
             term1: 1,
             term2: 2,
             operator: "+"
@@ -11,7 +12,7 @@ describe("calculate", () => {
     });
 
     test("should return difference", () => {
-        expect(calculate({
+        expect(getResult({
             term1: 3,
             term2: 2,
             operator: "-"
@@ -19,7 +20,7 @@ describe("calculate", () => {
     });
 
     test("should return product", () => {
-        expect(calculate({
+        expect(getResult({
             term1: 2,
             term2: 3,
             operator: "*"
@@ -27,10 +28,10 @@ describe("calculate", () => {
     });
 
     test("should throw an error if operation is not defined", () => {
-        expect(() => calculate({
+        expect(() => getResult({
             term1: 6,
             term2: 2,
             operator: "/" as ArithmeticSign
-        })).toThrow("Unsupported operation!");
+        })).toThrow(ERROR[100]);
     });
 });
