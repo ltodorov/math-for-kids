@@ -1,64 +1,110 @@
-import { getExpression } from "./get-expression";
-import { ParsedQuery } from "./get-parsed-query-params";
+import { getExpression, GetExpressionProps } from "./get-expression";
 
 describe("getExpression", () => {
-    let queryParams: ParsedQuery = {};
-    let inc: number = 1;
+    let props: GetExpressionProps = {};
+
+    beforeEach(() => {
+        Math.random = jest.fn()
+            .mockImplementationOnce(() => 0)
+            .mockImplementationOnce(() => 0.1)
+            .mockImplementationOnce(() => 0.1)
+            .mockImplementation(() => 0);
+    });
 
     afterEach(() => {
-        inc = 1;
+        props = {};
     });
 
-    test("should return addition when Math.random() < 0.5", () => {
-        Math.random = jest.fn(() => (1 + inc++) / 10);
-        expect(getExpression(queryParams)).toEqual({
-            operator: "+",
-            term1: 3,
-            term2: 4
+    describe("addition", () => {
+        beforeEach(() => {
+            props.operatorIndex = 0;
+        });
+
+        test("should return random numbers for addition", () => {
+            expect(getExpression(props)).toEqual({
+                operator: "+",
+                term1: 1,
+                term2: 2
+            });
+            expect(getExpression(props)).toEqual({
+                operator: "+",
+                term1: 2,
+                term2: 1
+            });
+        });
+
+        test("should return a random number for term2 only", () => {
+            props.firstTerm = 7;
+
+            expect(getExpression(props)).toEqual({
+                operator: "+",
+                term1: 7,
+                term2: 1
+            });
+            expect(getExpression(props)).toEqual({
+                operator: "+",
+                term1: 7,
+                term2: 2
+            });
         });
     });
 
-    test("should return substraction when Math.random() >= 0.5", () => {
-        Math.random = jest.fn(() => (4 + inc++) / 10);
-        expect(getExpression(queryParams)).toEqual({
-            operator: "-",
-            term1: 7,
-            term2: 6
+    describe("subtraction", () => {
+        beforeEach(() => {
+            props.operatorIndex = 1;
+        });
+
+        test("should return random numbers for subtraction", () => {
+            expect(getExpression(props)).toEqual({
+                operator: "-",
+                term1: 2,
+                term2: 1
+            });
+        });
+
+        test("should return a random value for term1 only", () => {
+            props.secondTerm = 2;
+
+            expect(getExpression(props)).toEqual({
+                operator: "-",
+                term1: 2,
+                term2: 2
+            });
+            expect(getExpression(props)).toEqual({
+                operator: "-",
+                term1: 2,
+                term2: 2
+            });
+        });
+
+        test("should ignore secondTerm if firstTerm < secondTerm", () => {
+            props.firstTerm = 1;
+            props.secondTerm = 2;
+
+            expect(getExpression(props)).toEqual({
+                operator: "-",
+                term1: 2,
+                term2: 2
+            });
         });
     });
 
-    test("should return substraction without switching terms", () => {
-        inc = 9;
-        Math.random = jest.fn(() => inc-- / 10);
-        expect(getExpression(queryParams)).toEqual({
-            operator: "-",
-            term1: 8,
-            term2: 7
+    describe("multiplication", () => {
+        beforeEach(() => {
+            props.operatorIndex = 2;
         });
-    });
 
-    test("should return a random value for term2 only", () => {
-        queryParams = {
-            operatorIndex: 0,
-            term: 7
-        };
-        Math.random = jest.fn(() => 0.1);
-        expect(getExpression(queryParams)).toEqual({
-            operator: "+",
-            term1: 7,
-            term2: 1
-        });
-    });
-
-    test("should return a random value for term2 equal to term1", () => {
-        queryParams = {
-            term: 7
-        };
-        Math.random = jest.fn(() => 1);
-        expect(getExpression(queryParams)).toEqual({
-            operator: "-",
-            term1: 7,
-            term2: 7
+        test("should return random numbers for multiplication", () => {
+            expect(getExpression(props)).toEqual({
+                operator: "*",
+                term1: 1,
+                term2: 2
+            });
+            expect(getExpression(props)).toEqual({
+                operator: "*",
+                term1: 2,
+                term2: 1
+            });
         });
     });
 });

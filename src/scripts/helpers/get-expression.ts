@@ -1,41 +1,71 @@
-import { ParsedQuery } from "./get-parsed-query-params";
-import { ArithmeticSign, getOperator } from "./get-operator";
-import { getMaxInteger } from "./get-max-integer";
-import { getRandomInteger } from "./get-random-integer";
+import { Expression } from "@scripts/types";
+import { getOperator } from "./get-operator";
+import { getMaxNumber } from "./get-max-number";
+import { getRandomNumber } from "./get-random-number";
 
-interface Expression {
-    /**
-     * First integer of the expression
-     */
-    term1: number;
-    /**
-     * Second integer of the expression
-     */
-    term2: number;
-    /**
-     * Arithmetic operator
-     */
-    operator: ArithmeticSign;
+interface TermProps {
+    firstTerm?: number;
+    secondTerm?: number;
+}
+
+interface GetExpressionProps extends TermProps {
+    operatorIndex?: number;
+    maxNumber?: number;
 }
 
 /**
  * Get a random expression
- * @param {Object.<string, number>} queryParams The parsed URL query params
+ * @param {Object} props
+ * @param {number} [operatorIndex] Index of the operator ["+", "-", "*"]
+ * @param {number} [maxNumber] The maximum number that can be generated
+ * @param {number} [firstTerm] The constant for the first term
+ * @param {number} [secondTerm] The constant for the second term
+ * @returns {Expression}
  */
-function getExpression(queryParams: ParsedQuery): Expression {
-    const operator = getOperator(queryParams.operatorIndex);
+function getExpression(props: GetExpressionProps = {}): Expression {
+    const operator = getOperator(props.operatorIndex);
     const isSubstraction = operator === "-";
-    const max = getMaxInteger(queryParams.term || queryParams.max);
-    const term1 = typeof queryParams.term === "number" ? max : getRandomInteger(max);
-    const term2 = getRandomInteger(max);
+    const max = getMaxNumber(props.maxNumber);
+    const term1 = getFirstTerm({
+        max,
+        firstTerm: props.firstTerm,
+        secondTerm: props.secondTerm
+    });
+    const term2 = getSecondTerm({
+        max,
+        firstTerm: props.firstTerm,
+        secondTerm: props.secondTerm
+    });
+
+    if (isSubstraction && term1 < term2) {
+        return getExpression(props);
+    }
+
     return {
-        term1: isSubstraction ? Math.max(term1, term2) : term1,
-        term2: isSubstraction ? Math.min(term1, term2) : term2,
+        term1,
+        term2,
         operator
     };
 }
 
+interface GetFirstTermProps extends TermProps {
+    max: number;
+}
+
+function getFirstTerm(props: GetFirstTermProps): number {
+    return typeof props.secondTerm === "undefined" && props.firstTerm
+        || getRandomNumber(props.max);
+}
+
+interface GetSecondTermProps extends TermProps {
+    max: number;
+}
+
+function getSecondTerm(props: GetSecondTermProps): number {
+    return props.secondTerm || getRandomNumber(props.max);
+}
+
 export {
-    Expression,
+    GetExpressionProps,
     getExpression
 };

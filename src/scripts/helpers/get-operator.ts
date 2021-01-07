@@ -18,5 +18,6 @@ function getOperator(operatorIndex?: number): ArithmeticSign {
 }
 
 export {
-    getOperator
+    getOperator,
+    operators
 };
