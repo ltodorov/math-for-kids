@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{description}}">
-    <title>{{title}}</title>
+    <meta name="description" content="{{pageDescription}}">
+    <title>{{pageTitle}}</title>
 </head>
 
 <body>
     <div class="site">
         <header class="site__header heading" role="banner">
-            <img class="heading__image" id="monster" src="@images/monsters/cowardly.svg" alt="{{monster.alt}}" width="80"
-                height="80" loading="lazy">
-            <h1>{{title}}</h1>
+            <img class="heading__image" id="image" src="@images/numbers/0.svg" alt="{{imageText}}" width="62"
+                height="80">
+            <h1>{{pageTitle}}</h1>
         </header>
 
         <main class="site__main" role="main">
             <aside class="site__aside" role="complementary">
-                <progress class="progress" id="progress" max="21" value="1"></progress>
+                <progress class="progress" id="progress" max="20" value="0"></progress>
 
                 <p class="score">
                     {{score}}:
@@ -28,33 +28,41 @@
             </aside>
 
             <article class="content">
-                <h2 class="title">{{task.title}}</h2>
+                <h2>{{mathTask.title}}</h2>
 
-                <form class="math" method="POST">
-                    <label for="term1" hidden>{{task.term1}}</label>
-                    <input type="text" class="math__num" name="term1" id="term-1" disabled>
-                    <span class="math__sign" name="operator" id="operator">+</span>
-                    <label for="term2" hidden>{{task.term2}}</label>
-                    <input type="text" class="math__num" name="term2" id="term-2" disabled>
+                <form class="math" id="form">
+                    <div class="math__field">
+                        <label for="term1" hidden>{{mathTask.term1}}</label>
+                        <input type="text" class="math__num" name="term1" id="term-1" disabled>
+                    </div>
+                    <span class="math__sign" id="operator">+</span>
+                    <div class="math__field">
+                        <label for="term2" hidden>{{mathTask.term2}}</label>
+                        <input type="text" class="math__num" name="term2" id="term-2" disabled>
+                    </div>
                     <span class="math__sign math__sign--equal">=</span>
-                    <label for="answer" hidden>{{task.answer}}</label>
-                    <input type="text" class="math__num" name="answer" id="answer" placeholder="?" autocomplete="off"
-                        inputmode="numeric">
+                    <div class="math__field">
+                        <label for="answer" hidden>{{mathTask.answer}}</label>
+                        <input type="text" class="math__num" name="answer" id="answer" placeholder="?"
+                            autocomplete="off" inputmode="numeric">
+                    </div>
                     <button type="submit" class="math__btn" id="submit">
-                        {{buttons.next}}
+                        {{submit}}
                     </button>
+                    <p class="math__message" id="message"></p>
                 </form>
             </article>
         </main>
 
         <footer class="site__footer" role="contentinfo">
             <p class="credits">
-                {{credits.background.text}} <a title="Unsplash" href="https://unsplash.com/photos/asviIGR3CPE">{{credits.background.authors}}</a>.
-                {{credits.monsters.text}} <a title="Freepik" href="https://www.freepik.com">{{credits.monsters.authors}}</a>.
+                {{credits.text}}
+                {{#each credits.authors}}
+                <a href="{{this.link}}" title="{{this.title}}">{{this.name}}</a>{{#unless @last}},{{/unless}}
+                {{/each}}
             </p>
             <p class="copyright">
-                {{authors}} &copy; <span id="year">2021</span>
-                <a href="/LICENSE" title="{{license}}">GPL-3.0-or-later</a>
+                {{author}} &copy; <span id="year">2021</span> GPL-3.0-or-later
             </p>
         </footer>
     </div>

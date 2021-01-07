@@ -1,10 +1,55 @@
-import { setRandomMonster } from "./monster";
+import { DOMNode } from "./types";
+import { getNumberImage } from "./helpers/get-number-image";
+import { getExpression } from "./helpers/get-expression";
 
-import "../styles/main.scss";
+import "@styles/main.scss";
+import { getParsedQueryParams } from "./helpers/get-parsed-query-params";
+import { setInputValue } from "./helpers/set-input-value";
+import { setTextContent } from "./helpers/set-text-content";
 
-class App {
+interface IApp {
+    changeImage(): void;
+    createTask(): void;
+}
+
+class App implements IApp {
+    private imageNode: DOMNode;
+    formNode: DOMNode;
+    operatorNode: DOMNode;
+
+    constructor() {
+        this.imageNode = document.getElementById("image");
+        this.formNode = document.getElementById("form");
+        this.operatorNode = document.getElementById("operator");
+
+        this.formNode?.addEventListener("submit", event => event.preventDefault(), false);
+    }
+
+    /**
+     * Change the image in the header
+     */
+    changeImage() {
+        if (this.imageNode instanceof HTMLImageElement) {
+            this.imageNode.src = getNumberImage();
+        }
+    }
+
+    createTask() {
+        if (this.formNode instanceof HTMLFormElement) {
+            const expr = getExpression(getParsedQueryParams(window.location.search));
+            const term1 = this.formNode.elements.namedItem("term-1");
+            const term2 = this.formNode.elements.namedItem("term-2");
+
+            setInputValue(term1, expr.term1.toString());
+            setInputValue(term2, expr.term2.toString());
+            setTextContent(this.operatorNode, expr.operator);
+        }
+    }
+
+
+
     init() {
-        setRandomMonster();
+        this.createTask();
     }
 }
 

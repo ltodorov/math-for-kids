@@ -1,7 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const lang = require("./languages/bg.json");
+const lang = require("./src/languages/en.json");
 
 module.exports = {
   entry: "./src/scripts/main.ts",

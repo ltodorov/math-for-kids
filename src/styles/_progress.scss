@@ -1,8 +1,8 @@
 .progress {
+    display: block;
     width: 100%;
     height: 2px;
     background: none;
-    text-align: center;
 
     &::-webkit-progress-bar {
         background-color: var(--progress-bar-color);

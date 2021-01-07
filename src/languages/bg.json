@@ -1,0 +1,27 @@
+{
+    "lang": "bg",
+    "author":"Любомир Тодоров",
+    "pageTitle": "Математика за деца",
+    "pageDescription": "Страница с упражнения по математика за деца",
+    "imageText": "Ръчно рисувано число",
+    "score": "Резултат",
+    "mathTask": {
+        "title": "Реши задачата",
+        "term1": "Термин 1",
+        "term2": "Термин 2",
+        "answer": "Отговор"
+    },
+    "submit": "Изпрати",
+    "credits": {
+        "text": "Картинки от",
+        "authors": [{
+            "link": "https://unsplash.com/photos/asviIGR3CPE",
+            "title": "Време да уцелим книгите от Unsplash",
+            "name": "Деби Хъдсън"
+        }, {
+            "link": "https://www.freepik.com/free-vector/hand-drawn-mathematical-symbols_11701566.htm",
+            "title": "Ръчно нарисувани математически символи",
+            "name": "freepick"
+        }]
+    }
+}

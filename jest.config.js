@@ -86,7 +86,9 @@ module.exports = {
   moduleNameMapper: {
     "^@scripts/(.*)$": "<rootDir>/src/scripts/$1",
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
-    "^@images/(.*)$": "<rootDir>/src/images/$1"
+    "^@images/(.*)$": "<rootDir>/src/images/$1",
+    "\\.s?css$": "<rootDir/fileMock.js",
+    "\\.svg$": "<rootDir/fileMock.js"
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -175,7 +177,10 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    "\\.s?css$": "<rootDir>/fileMock.js",
+    "\\.svg$": "<rootDir>/fileMock.js"
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

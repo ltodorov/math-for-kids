@@ -10,13 +10,12 @@ html {
 
 body {
     margin: 0;
-    background: var(--main-back-color) var(--main-back-url) no-repeat var(--main-back-position);
+    background: var(--main-bg-color) var(--main-bg-image) no-repeat var(--main-bg-position);
     background-size: cover;
-    color: var(--main-front-color);
+    color: var(--main-color);
     font-family: var(--main-font-family);
-    line-height: 1.25;
 }
 
 a {
-    color: var(--main-front-color);
+    color: inherit;
 }

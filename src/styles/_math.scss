@@ -2,28 +2,27 @@
     display: grid;
     grid-template-columns: repeat(5, auto);
     justify-content: center;
-    justify-items: center;
     align-items: center;
-    grid-gap: 0.625em;
+    grid-gap: 0.5em;
 
-    @media screen and (min-width: "40em") {
+    @media screen and (min-width: "30em") {
         justify-content: flex-start;
     }
 }
 
 .math__num {
-    border: 1px solid #cacaca;
-    padding: 0.375em 0.125em;
-    width: 2em;
+    border: 1px solid var(--input-border-color);
+    padding: 0.46875em 0.125em;
+    width: 2.125em;
     font-size: 2em;
     font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--monospace-font-family);
     background: transparent;
-    color: #fff;
+    color: var(--main-color);
     text-align: center;
 
     &:disabled {
-        border-color: #6a6a6a;
+        border-color: var(--input-disabled-border-color);
     }
 }
 

@@ -1,13 +1,19 @@
 :root {
-    --main-front-color: #fff;
-    --main-back-color: #1a1a1a;
-    --main-back-url: url("../images/bg.webp");
-    --main-back-position: left center;
+    --main-bg-color: #1a1a1a;
+    --main-bg-image: url("../images/bg.webp");
+    --main-bg-position: left center;
+    --main-color: #fff;
     --main-font-family: Arial, Helvetica, sans-serif;
+    --monospace-font-family: "Courier New", Courier, monospace;
 
     --progress-bar-color: rgba(255, 255, 255, 0.1);
-    --progress-bar-value-color: #32cd32;
+    --progress-bar-value-color: #adff2f;
 
-    --score-positive-color: #32cd32;
-    --score-negative-color: #dc143c;
+    --score-positive-color: #adff2f;
+    --score-negative-color: #ff4500;
+
+    --input-border-color: #c0c0c0;
+    --input-disabled-border-color: #696969;
+
+    --footer-color: #fff8dc;
 }
