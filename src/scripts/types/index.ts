@@ -32,10 +32,16 @@ interface Solution {
 
 interface Equation extends Expression, Solution {}
 
+interface TermProps {
+    firstTerm?: number;
+    secondTerm?: number;
+}
+
 export {
     DOMNode,
     ArithmeticSign,
     Expression,
     Solution,
-    Equation
+    Equation,
+    TermProps
 };

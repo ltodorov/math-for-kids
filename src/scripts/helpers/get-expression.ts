@@ -1,12 +1,8 @@
-import { Expression } from "@scripts/types";
+import { Expression, TermProps } from "@scripts/types";
 import { getOperator } from "./get-operator";
 import { getMaxNumber } from "./get-max-number";
-import { getRandomNumber } from "./get-random-number";
-
-interface TermProps {
-    firstTerm?: number;
-    secondTerm?: number;
-}
+import { getFirstTerm } from "./get-first-term";
+import { getSecondTerm } from "./get-second-term";
 
 interface GetExpressionProps extends TermProps {
     operatorIndex?: number;
@@ -46,23 +42,6 @@ function getExpression(props: GetExpressionProps = {}): Expression {
         term2,
         operator
     };
-}
-
-interface GetFirstTermProps extends TermProps {
-    max: number;
-}
-
-function getFirstTerm(props: GetFirstTermProps): number {
-    return typeof props.secondTerm === "undefined" && props.firstTerm
-        || getRandomNumber(props.max);
-}
-
-interface GetSecondTermProps extends TermProps {
-    max: number;
-}
-
-function getSecondTerm(props: GetSecondTermProps): number {
-    return props.secondTerm || getRandomNumber(props.max);
 }
 
 export {

@@ -10,7 +10,7 @@ function getParsedQueryParams(search: string): ParsedQuery {
     const parsedQuery: ParsedQuery = splitQuery.reduce((acc: ParsedQuery, str: string) => {
         if (str.length > 0) {
             const [key, value] = str.split("=");
-            acc[key] = parseInt(value, 10); // Convert to number
+            acc[key] = parseInt(value, 10);
         }
         return acc;
     }, {});
