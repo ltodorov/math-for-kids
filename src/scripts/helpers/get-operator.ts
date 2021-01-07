@@ -1,26 +1,22 @@
-/**
- * Standard arithmetic operators
- */
-type ArithmeticSign = "+" | "-" | "*";
+import { ArithmeticSign } from "@scripts/types";
 
-const OPERATORS: ArithmeticSign[] = ["+", "-", "*"];
+const operators: ArithmeticSign[] = ["+", "-", "*"];
 
 /**
  * Get an arithmetic operator
  * It returns a specific operator if we pass in argument or
- * it returns a random operator among "+" and "-"
+ * it returns a random operator
  * If the operatorIndex is greater than OPERATORS.length it returns "*"
  * @param {number} [operatorIndex] Index of the operator in ["+", "-", "*"]
  */
 function getOperator(operatorIndex?: number): ArithmeticSign {
-    const length = OPERATORS.length;
+    const length = operators.length;
     const index = typeof operatorIndex === "number" ?
         Math.min(operatorIndex, length - 1) :
-        Math.round(Math.random());
-    return OPERATORS[index];
+        Math.floor(Math.random() * length);
+    return operators[index];
 }
 
 export {
-    ArithmeticSign,
     getOperator
 };

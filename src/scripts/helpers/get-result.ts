@@ -1,5 +1,5 @@
 import { ERROR } from "@scripts/dicts/errors";
-import { ArithmeticSign, ExpressionLeft } from "@scripts/types";
+import { ArithmeticSign, Expression } from "@scripts/types";
 
 type Formula = (term1: number, term2: number) => number;
 
@@ -17,7 +17,7 @@ const operations: Record<ArithmeticSign, Formula> = {
  * @param {number} exp.term2
  * @returns {number} The result of the arithmetic operation
  */
-function getResult(exp: ExpressionLeft): number {
+function getResult(exp: Expression): number {
     const formula = operations[exp.operator];
     if (typeof formula !== "function") {
         throw new Error(ERROR[100]);

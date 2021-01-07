@@ -23,8 +23,13 @@ describe("getOperator", () => {
         });
 
         test("should return -", () => {
-            Math.random = jest.fn(() => 1);
+            Math.random = jest.fn(() => 0.5);
             expect(getOperator()).toBe("-");
+        });
+
+        test("should return *", () => {
+            Math.random = jest.fn(() => 0.99);
+            expect(getOperator()).toBe("*");
         });
     });
 });
