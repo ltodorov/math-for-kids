@@ -71,6 +71,8 @@ describe("App", () => {
         }, {
             value: app.exercise.term2.toString()
         }, {
+            value: "="
+        }, {
             value: app.result.toString(),
             status: "positive"
         }]);

@@ -14,6 +14,7 @@ function getHistoryItems({ term1, operator, term2, ...rest }: HistoryItemsOption
         getHistoryItem(term1.toString()),
         getHistoryItem(operator),
         getHistoryItem(term2.toString()),
+        getHistoryItem("="),
         ...getItemResult(rest)
     ];
 }

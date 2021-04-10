@@ -16,6 +16,8 @@ describe("getHistoryItems", () => {
         }, {
             value: "2"
         }, {
+            value: "="
+        }, {
             value: "3",
             status: "positive"
         }]);
@@ -35,6 +37,8 @@ describe("getHistoryItems", () => {
             value: "+"
         }, {
             value: "2"
+        }, {
+            value: "="
         }, {
             value: "4",
             status: "negative"
