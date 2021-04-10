@@ -14,7 +14,7 @@ const imagesLen: number = images.length;
 
 /**
  * Get a random number image
- * @returns {string} URL of the image
+ * @returns {string} path to the image
  */
 function getNumberImage(): string {
     return images[Math.floor(Math.random() * imagesLen)];

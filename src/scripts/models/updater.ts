@@ -22,15 +22,15 @@ interface FormOptions extends Exercise { }
 
 interface HistoryItem {
     value: string;
-    modifier?: HistoryItemModifier;
+    status?: HistoryItemStatus;
 }
 
-type HistoryItemModifier = "positive" | "negative";
+type HistoryItemStatus = "positive" | "negative";
 
 export {
     IUpdater,
     UpdaterOptions,
     FormOptions,
     HistoryItem,
-    HistoryItemModifier
+    HistoryItemStatus
 };

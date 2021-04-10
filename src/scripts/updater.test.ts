@@ -109,7 +109,7 @@ describe("Updater", () => {
                 value: "2"
             }, {
                 value: "3",
-                modifier: "positive"
+                status: "positive"
             }];
             updater = new Updater(defaultOptions);
             updater.updateHistory(historyItems);
@@ -126,7 +126,7 @@ describe("Updater", () => {
                 value: "2"
             }, {
                 value: "3",
-                modifier: "positive"
+                status: "positive"
             }];
             updater = new Updater({
                 ...defaultOptions,
@@ -149,10 +149,10 @@ describe("Updater", () => {
                 value: "2"
             }, {
                 value: "4",
-                modifier: "negative"
+                status: "negative"
             }, {
                 value: "3",
-                modifier: "positive"
+                status: "positive"
             }];
             updater = new Updater({
                 ...defaultOptions,

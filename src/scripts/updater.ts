@@ -35,7 +35,7 @@ class Updater implements IUpdater {
             const historyItemClassName = "history__item";
 
             items.forEach(item => {
-                const modifier = item.modifier ? ` ${historyItemClassName}--${item.modifier}` : "";
+                const modifier = item.status ? ` ${historyItemClassName}--${item.status}` : "";
                 const itemNode = <HTMLSpanElement>templateNode.cloneNode();
                 itemNode.className = `${historyItemClassName}${modifier}`;
                 setTextContent(itemNode, item.value);
