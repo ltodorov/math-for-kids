@@ -1,9 +1,8 @@
 import { getResult } from "./get-result";
-import { ArithmeticSign } from "@scripts/types";
-import { ERROR } from "@scripts/dicts/errors";
+import { ArithmeticSign } from "@scripts/models/exercise";
 
 describe("getResult", () => {
-    test("should return sum", () => {
+    it("should return sum", () => {
         expect(getResult({
             term1: 1,
             term2: 2,
@@ -11,7 +10,7 @@ describe("getResult", () => {
         })).toBe(3);
     });
 
-    test("should return difference", () => {
+    it("should return difference", () => {
         expect(getResult({
             term1: 3,
             term2: 2,
@@ -19,7 +18,7 @@ describe("getResult", () => {
         })).toBe(1);
     });
 
-    test("should return product", () => {
+    it("should return product", () => {
         expect(getResult({
             term1: 2,
             term2: 3,
@@ -27,11 +26,19 @@ describe("getResult", () => {
         })).toBe(6);
     });
 
-    test("should throw an error if operation is not defined", () => {
+    it("should return quotient", () => {
+        expect(getResult({
+            term1: 6,
+            term2: 3,
+            operator: "/"
+        })).toBe(2);
+    });
+
+    it("should throw an error if operation is not defined", () => {
         expect(() => getResult({
             term1: 6,
             term2: 2,
-            operator: "/" as ArithmeticSign
-        })).toThrow(ERROR[100]);
+            operator: "#" as ArithmeticSign
+        })).toThrow("Unsupported operation!");
     });
 });
