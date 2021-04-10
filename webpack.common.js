@@ -1,14 +1,19 @@
 const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const lang = require("./src/languages/en.json");
+const bg = require("./src/languages/bg.json");
+const en = require("./src/languages/en.json");
+
+const htmlWebpackPluginCommonOptions = {
+  template: path.resolve(__dirname, "src", "index.hbs")
+};
 
 module.exports = {
   entry: "./src/scripts/main.ts",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
+    publicPath: "",
+    clean: true
   },
   module: {
     rules: [{
@@ -36,10 +41,15 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/index.hbs",
-      templateParameters: lang
+      ...htmlWebpackPluginCommonOptions,
+      filename: "index.html",
+      templateParameters: bg,
+    }),
+    new HtmlWebpackPlugin({
+      ...htmlWebpackPluginCommonOptions,
+      filename: "index-en.html",
+      templateParameters: en
     })
   ]
 };
