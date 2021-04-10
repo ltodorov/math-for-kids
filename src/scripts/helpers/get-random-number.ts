@@ -1,8 +1,8 @@
 /**
  * Get a random number between 1 and the max number
- * @param {number} max The largest number passed in by the user
+ * @param {number} [max=10] The largest number passed in by the user
  */
-function getRandomNumber(max: number): number {
+function getRandomNumber(max: number = 10): number {
     return Math.floor(Math.random() * max) + 1;
 }
 
