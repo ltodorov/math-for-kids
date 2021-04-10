@@ -10,10 +10,10 @@
     font-family: var(--monospace-font-family);
 }
 
-.score__item--ok {
+.score__item--positive {
     color: var(--score-positive-color);
 }
 
-.score__item--wrong {
+.score__item--negative {
     color: var(--score-negative-color);
 }

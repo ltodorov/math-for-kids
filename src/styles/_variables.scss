@@ -1,7 +1,8 @@
 :root {
+    --main-bg-gradient-start: #000;
+    --mani-bg-gradient-end: transparent;
     --main-bg-color: #1a1a1a;
     --main-bg-image: url("../images/bg.webp");
-    --main-bg-position: left center;
     --main-color: #fff;
     --main-font-family: Arial, Helvetica, sans-serif;
     --monospace-font-family: "Courier New", Courier, monospace;
@@ -11,6 +12,9 @@
 
     --score-positive-color: #adff2f;
     --score-negative-color: #ff4500;
+
+    --history-positive-color: #adff2f;
+    --history-negative-color: #ff4500;
 
     --input-border-color: #c0c0c0;
     --input-disabled-border-color: #696969;

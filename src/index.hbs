@@ -9,52 +9,54 @@
 </head>
 
 <body>
-    <div class="site">
-        <header class="site__header heading" role="banner">
-            <img class="heading__image" id="image" src="@images/numbers/0.svg" alt="{{imageText}}" width="62"
+    <div class="page">
+        <header class="page__header header" role="banner">
+            <img class="header__image" id="image" src="@images/numbers/0.svg" alt="{{headerImage}}" width="62"
                 height="80">
-            <h1>{{pageTitle}}</h1>
+            <h1 class="header__title">{{pageTitle}}</h1>
         </header>
 
-        <main class="site__main" role="main">
-            <aside class="site__aside" role="complementary">
+        <main class="page__main" role="main">
+            <aside role="complementary">
                 <progress class="progress" id="progress" max="20" value="0"></progress>
 
                 <p class="score">
                     {{score}}:
-                    <strong class="score__item score__item--ok" id="correct">0</strong>
-                    <strong class="score__item score__item--wrong" id="wrong">0</strong>
+                    <strong class="score__item score__item--positive" id="positive">0</strong>
+                    <strong class="score__item score__item--negative" id="negative">0</strong>
                 </p>
             </aside>
 
-            <article class="content">
-                <h2>{{mathTask.title}}</h2>
+            <form class="math" id="form">
+                <h2 class="math__title">{{mathTask.title}}</h2>
 
-                <form class="math" id="form">
-                    <div class="math__field">
-                        <label for="term1" hidden>{{mathTask.term1}}</label>
-                        <input type="text" class="math__num" name="term1" id="term-1" disabled>
-                    </div>
-                    <span class="math__sign" id="operator">+</span>
-                    <div class="math__field">
-                        <label for="term2" hidden>{{mathTask.term2}}</label>
-                        <input type="text" class="math__num" name="term2" id="term-2" disabled>
-                    </div>
+                <div class="math__question">
+                    <span class="math__field">
+                        <label for="term-1" class="math__label">{{mathTask.term1}}</label>
+                        <input type="text" class="math__num" name="term-1" disabled>
+                    </span>
+                    <span class="math__sign operator">+</span>
+                    <span class="math__field">
+                        <label for="term-2" class="math__label">{{mathTask.term2}}</label>
+                        <input type="text" class="math__num" name="term-2" disabled>
+                    </span>
                     <span class="math__sign math__sign--equal">=</span>
-                    <div class="math__field">
-                        <label for="answer" hidden>{{mathTask.answer}}</label>
-                        <input type="text" class="math__num" name="answer" id="answer" placeholder="?"
-                            autocomplete="off" inputmode="numeric">
-                    </div>
-                    <button type="submit" class="math__btn" id="submit">
-                        {{submit}}
-                    </button>
-                    <p class="math__message" id="message"></p>
-                </form>
-            </article>
+                    <span class="math__field">
+                        <label for="answer" class="math__label">{{mathTask.answer}}</label>
+                        <input type="text" class="math__num" name="answer" placeholder="?" autocomplete="off"
+                            inputmode="numeric" pattern="[0-9]{1,3}" required>
+                    </span>
+                </div>
+
+                <button type="submit" class="math__btn" name="submit">
+                    {{verify}}
+                </button>
+            </form>
+
+            <div class="history" id="history"></div>
         </main>
 
-        <footer class="site__footer" role="contentinfo">
+        <footer class="page__footer" role="contentinfo">
             <p class="credits">
                 {{credits.text}}
                 {{#each credits.authors}}
@@ -62,11 +64,15 @@
                 {{/each}}
             </p>
             <p class="copyright">
-                {{author}} &copy; <span id="year">2021</span> GPL-3.0-or-later
+                {{author}} &copy; 2021 GPL-3.0-or-later
+            </p>
+            <p class="legal">
+                TODO: Google Analytics Cookies information
             </p>
         </footer>
     </div>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZMZLZR7CZ"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-.site {
+.page {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -7,22 +7,18 @@
     min-height: 100vh;
 }
 
-.site__header {
+.page__header {
     flex: none;
 }
 
-.site__main {
+.page__main {
     flex: auto;
 }
 
-.site__footer {
+.page__footer {
     flex: none;
-    padding: 1.6em 0;
-    font-size: 0.625em;
+    padding: 1.6667em 0;
+    font-size: 0.75em;
     text-align: center;
     color: var(--footer-color);
-
-    p {
-        margin: 0.8em 0;
-    }
 }

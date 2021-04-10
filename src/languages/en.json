@@ -3,7 +3,7 @@
     "author":"Lyubomir Todorov",
     "pageTitle": "Math for kids",
     "pageDescription": "A web page where kids can train their Math skills",
-    "imageText": "A hand drawn number",
+    "headerImage": "A hand drawn number",
     "score": "Score",
     "mathTask": {
         "title": "Solve the task",
@@ -11,13 +11,13 @@
         "term2": "Term 2",
         "answer": "Answer"
     },
-    "submit": "Submit",
+    "verify": "Verify",
     "credits": {
         "text": "Images by",
         "authors": [{
-            "link": "https://unsplash.com/photos/asviIGR3CPE",
-            "title": "Time to hit the books on Unsplash",
-            "name": "Debby Hudson"
+            "link": "https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+            "title": "A leaf on a book",
+            "name": "Joanna Kosinska"
         }, {
             "link": "https://www.freepik.com/free-vector/hand-drawn-mathematical-symbols_11701566.htm",
             "title": "Hand drawn mathematical symbols",

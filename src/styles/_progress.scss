@@ -2,19 +2,33 @@
     display: block;
     width: 100%;
     height: 2px;
-    background: none;
+    border: none;
+    background: var(--progress-bar-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: var(--progress-bar-value-color);
 
     &::-webkit-progress-bar {
-        background-color: var(--progress-bar-color);
+        background: transparent;
     }
 
     &::-webkit-progress-value {
-        background-color: var(--progress-bar-value-color);
+        background: var(--progress-bar-value-color);
+    }
+
+    &::-moz-progress-bar {
+        background: var(--progress-bar-value-color);
+    }
+
+    &::-ms-fill {
+        background: var(--progress-bar-value-color);
     }
 
     &::after {
         content: attr(value) " / " attr(max);
         font-size: 0.625em;
+        color: var(--main-color);
     }
 
 }

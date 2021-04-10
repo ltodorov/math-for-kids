@@ -1,17 +1,37 @@
 .math {
     display: grid;
+    justify-content: center;
+}
+
+.math__title {
+    text-align: center;
+}
+
+.math__question {
+    display: grid;
     grid-template-columns: repeat(5, auto);
     justify-content: center;
     align-items: center;
     grid-gap: 0.5em;
+}
 
-    @media screen and (min-width: "30em") {
-        justify-content: flex-start;
-    }
+.math__field {
+    position: relative;
+}
+
+.math__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
 }
 
 .math__num {
     border: 1px solid var(--input-border-color);
+    border-radius: 2px;
     padding: 0.46875em 0.125em;
     width: 2.125em;
     font-size: 2em;
@@ -27,19 +47,17 @@
 }
 
 .math__sign {
+    font-weight: bold;
     font-size: 2.4em;
+    font-family: var(--monospace-font-family);
 }
 
 .math__btn {
     margin: 1em 0;
+    border-radius: 2px;
     border: 0;
     padding: 0.5em;
     width: 100%;
     font-size: 1.25em;
     line-height: 1.2;
-    grid-column-start: span 5;
-}
-
-.math__message {
-    grid-column-start: span 5;
 }

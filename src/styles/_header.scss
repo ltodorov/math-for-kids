@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.header__image {
+    flex: none;
+    margin-inline-end: 1em;
+}
+
+.header__title {
+    margin: 0;
+}
