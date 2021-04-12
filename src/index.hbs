@@ -22,8 +22,8 @@
 
                 <p class="score">
                     {{score}}:
-                    <strong class="score__item score__item--positive" id="positive">0</strong>
-                    <strong class="score__item score__item--negative" id="negative">0</strong>
+                    <strong class="score__item score__item--correct" id="correct">0</strong>
+                    <strong class="score__item score__item--wrong" id="wrong">0</strong>
                 </p>
             </aside>
 
@@ -57,17 +57,17 @@
         </main>
 
         <footer class="page__footer" role="contentinfo">
+            <p class="copyright">
+                {{author}} &copy; 2021 GPL-3.0-or-later
+            </p>
             <p class="credits">
                 {{credits.text}}
                 {{#each credits.authors}}
                 <a href="{{this.link}}" title="{{this.title}}">{{this.name}}</a>{{#unless @last}},{{/unless}}
                 {{/each}}
             </p>
-            <p class="copyright">
-                {{author}} &copy; 2021 GPL-3.0-or-later
-            </p>
             <p class="legal">
-                TODO: Google Analytics Cookies information
+                {{legal}}
             </p>
         </footer>
     </div>

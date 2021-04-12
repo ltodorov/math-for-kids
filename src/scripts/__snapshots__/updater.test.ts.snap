@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Updater updateHistory should add correct history item 1`] = `
+<div>
+  <p
+    class="history__row"
+  >
+    <span
+      class="history__item"
+    >
+      1
+    </span>
+    <span
+      class="history__item"
+    >
+      +
+    </span>
+    <span
+      class="history__item"
+    >
+      2
+    </span>
+    <span
+      class="history__item history__item--correct"
+    >
+      3
+    </span>
+  </p>
+</div>
+`;
+
+exports[`Updater updateHistory should add wrong history item 1`] = `
+<div>
+  <p
+    class="history__row"
+  >
+    <span
+      class="history__item"
+    >
+      1
+    </span>
+    <span
+      class="history__item"
+    >
+      +
+    </span>
+    <span
+      class="history__item"
+    >
+      2
+    </span>
+    <span
+      class="history__item history__item--wrong"
+    >
+      4
+    </span>
+    <span
+      class="history__item history__item--correct"
+    >
+      (3)
+    </span>
+  </p>
+  <p
+    class="history__row"
+  >
+    <span
+      class="history__item"
+    >
+      1
+    </span>
+    <span
+      class="history__item"
+    >
+      +
+    </span>
+    <span
+      class="history__item"
+    >
+      2
+    </span>
+    <span
+      class="history__item history__item--correct"
+    >
+      3
+    </span>
+  </p>
+</div>
+`;

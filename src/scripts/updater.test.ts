@@ -2,15 +2,15 @@ import { HistoryItem, IUpdater, UpdaterOptions } from "./models/updater";
 import { Updater } from "./updater";
 
 describe("Updater", () => {
-    let updater: IUpdater;
     const defaultOptions: UpdaterOptions = {
         formNode: null,
         historyNode: null,
         imageNode: null,
         progressNode: null,
-        scoreNegativeNode: null,
-        scorePositiveNode: null
+        scoreCorrectNode: null,
+        scoreWrongNode: null
     };
+    let updater: IUpdater;
 
     describe("updateForm", () => {
         let formNode: HTMLFormElement;
@@ -51,14 +51,17 @@ describe("Updater", () => {
                 operator: "+",
                 term2: 2
             });
+            updater.disableSubmit();
 
             expect(term1Node.value).toBe("");
             expect(operatorNode.textContent).toBe("");
             expect(term2Node.value).toBe("");
             expect(answerNode.value).toBe("");
+            expect(answerNode.disabled).toBe(false);
+            expect(submitNode.disabled).toBe(false);
         });
 
-        it("should update form elements", () => {
+        it("should update form elements if formNode exists", () => {
             updater = new Updater({
                 ...defaultOptions,
                 formNode
@@ -85,6 +88,22 @@ describe("Updater", () => {
             expect(term2Node.value).toBe("1");
             expect(answerNode.value).toBe("");
         });
+
+        it("should disable submit if max exercises is reached", () => {
+            updater = new Updater({
+                ...defaultOptions,
+                formNode
+            });
+
+            expect(answerNode.disabled).toBe(false);
+            expect(submitNode.disabled).toBe(false);
+
+
+            updater.disableSubmit();
+
+            expect(answerNode.disabled).toBe(true);
+            expect(submitNode.disabled).toBe(true);
+        });
     });
 
     describe("updateHistory", () => {
@@ -109,7 +128,7 @@ describe("Updater", () => {
                 value: "2"
             }, {
                 value: "3",
-                status: "positive"
+                status: "correct"
             }];
             updater = new Updater(defaultOptions);
             updater.updateHistory(historyItems);
@@ -126,7 +145,7 @@ describe("Updater", () => {
                 value: "2"
             }, {
                 value: "3",
-                status: "positive"
+                status: "correct"
             }];
             updater = new Updater({
                 ...defaultOptions,
@@ -134,10 +153,8 @@ describe("Updater", () => {
             });
             updater.updateHistory(historyItems);
 
+            expect(historyNode).toMatchSnapshot();
             expect(historyNode.children.length).toBe(1);
-            expect(historyNode.children[0].className).toBe("history__row");
-            expect(historyNode.children[0].querySelectorAll(".history__item").length).toBe(4);
-            expect(historyNode.children[0].querySelectorAll(".history__item--positive").length).toBe(1);
         });
 
         it("should add wrong history item", () => {
@@ -149,10 +166,10 @@ describe("Updater", () => {
                 value: "2"
             }, {
                 value: "4",
-                status: "negative"
+                status: "wrong"
             }, {
-                value: "3",
-                status: "positive"
+                value: "(3)",
+                status: "correct"
             }];
             updater = new Updater({
                 ...defaultOptions,
@@ -160,11 +177,8 @@ describe("Updater", () => {
             });
             updater.updateHistory(historyItems);
 
+            expect(historyNode).toMatchSnapshot();
             expect(historyNode.children.length).toBe(2);
-            expect(historyNode.children[1].className).toBe("history__row");
-            expect(historyNode.children[1].querySelectorAll(".history__item").length).toBe(5);
-            expect(historyNode.children[1].querySelectorAll(".history__item--negative").length).toBe(1);
-            expect(historyNode.children[1].querySelectorAll(".history__item--positive").length).toBe(1);
         });
     });
 
@@ -173,12 +187,12 @@ describe("Updater", () => {
         let imageNode: HTMLImageElement;
 
         beforeEach(() => {
+            Math.random = jest.fn(() => 0.1);
             imageNode = document.createElement("img");
             imageNode.src = defaultImgSrc;
         });
 
         it("should not update image if imageNode is null", () => {
-            Math.random = jest.fn(() => 0.1);
             updater = new Updater(defaultOptions);
             updater.updateImage();
 
@@ -186,7 +200,6 @@ describe("Updater", () => {
         });
 
         it("should update image if imageNode exists", () => {
-            Math.random = jest.fn(() => 0.1);
             updater = new Updater({
                 ...defaultOptions,
                 imageNode
@@ -200,9 +213,12 @@ describe("Updater", () => {
     describe("updateProgress", () => {
         let progressNode: HTMLProgressElement;
 
-        it("should not update progress if progressNode is null", () => {
+        beforeEach(() => {
             progressNode = document.createElement("progress");
             progressNode.value = 0;
+        });
+
+        it("should not update progress if progressNode is null", () => {
             updater = new Updater(defaultOptions);
             updater.updateProgress(1);
 
@@ -210,8 +226,6 @@ describe("Updater", () => {
         });
 
         it("should update progress if progressNode exists", () => {
-            progressNode = document.createElement("progress");
-            progressNode.value = 0;
             updater = new Updater({
                 ...defaultOptions,
                 progressNode
@@ -222,7 +236,41 @@ describe("Updater", () => {
         });
     });
 
-    // describe("updateScore", () => {
-    //     TODO
-    // });
+    describe("updateScore", () => {
+        let scoreCorrectNode: HTMLElement;
+        let scoreWrongNode: HTMLElement;
+
+        beforeEach(() => {
+            scoreCorrectNode = document.createElement("strong");
+            scoreCorrectNode.textContent = "0";
+            scoreWrongNode = document.createElement("strong");
+            scoreWrongNode.textContent = "0";
+        });
+
+        it("should not update score if score nodes are null", () => {
+            updater = new Updater(defaultOptions);
+            updater.updateScore({
+                correct: 0,
+                wrong: 1
+            });
+
+            expect(scoreCorrectNode.textContent).toBe("0");
+            expect(scoreWrongNode.textContent).toBe("0");
+        });
+
+        it("should update score if score nodes exist", () => {
+            updater = new Updater({
+                ...defaultOptions,
+                scoreCorrectNode,
+                scoreWrongNode
+            });
+            updater.updateScore({
+                correct: 1,
+                wrong: 0
+            });
+
+            expect(scoreCorrectNode.textContent).toBe("1");
+            expect(scoreWrongNode.textContent).toBe("0");
+        });
+    });
 });

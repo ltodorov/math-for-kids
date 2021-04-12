@@ -11,8 +11,8 @@ html {
 body {
     margin: 0;
     background:
-        linear-gradient(var(--main-bg-gradient-start), var(--mani-bg-gradient-end)),
-        var(--main-bg-color) var(--main-bg-image) no-repeat left top;
+        linear-gradient(var(--main-bg-gradient-start), var(--mani-bg-gradient-end)) fixed,
+        var(--main-bg-color) var(--main-bg-image) no-repeat left top fixed;
     background-size: cover;
     color: var(--main-color);
     font-family: var(--main-font-family);

@@ -10,10 +10,10 @@
     font-family: var(--monospace-font-family);
 }
 
-.score__item--positive {
-    color: var(--score-positive-color);
+.score__item--correct {
+    color: var(--score-correct-color);
 }
 
-.score__item--negative {
-    color: var(--score-negative-color);
+.score__item--wrong {
+    color: var(--score-wrong-color);
 }

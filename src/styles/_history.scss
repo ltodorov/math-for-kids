@@ -12,10 +12,10 @@
     margin: 0 0.125em;
 }
 
-.history__item--positive {
-    color: var(--history-positive-color);
+.history__item--correct {
+    color: var(--history-correct-color);
 }
 
-.history__item--negative {
-    color: var(--history-negative-color);
+.history__item--wrong {
+    color: var(--history-wrong-color);
 }

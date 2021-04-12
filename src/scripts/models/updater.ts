@@ -1,12 +1,14 @@
 import { DOMNode } from "./dom";
 import { Exercise } from "./exercise";
+import { Score } from "./score";
 
 interface IUpdater {
     updateForm(options: FormOptions): void;
     updateHistory(items: HistoryItem[]): void;
     updateImage(): void;
     updateProgress(value: number): void;
-    updateScore(isCorrect: boolean): void;
+    updateScore(score: Score): void;
+    disableSubmit(): void;
 }
 
 interface UpdaterOptions {
@@ -14,8 +16,8 @@ interface UpdaterOptions {
     historyNode: DOMNode;
     imageNode: DOMNode;
     progressNode: DOMNode;
-    scoreNegativeNode: DOMNode;
-    scorePositiveNode: DOMNode;
+    scoreCorrectNode: DOMNode;
+    scoreWrongNode: DOMNode;
 }
 
 interface FormOptions extends Exercise { }
@@ -25,7 +27,7 @@ interface HistoryItem {
     status?: HistoryItemStatus;
 }
 
-type HistoryItemStatus = "positive" | "negative";
+type HistoryItemStatus = "correct" | "wrong";
 
 export {
     IUpdater,

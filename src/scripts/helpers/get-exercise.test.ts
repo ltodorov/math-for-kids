@@ -22,8 +22,8 @@ describe("getExercise", () => {
             operatorIndex: 1
         })).toEqual({
             operator: "-",
-            term1: 3,
-            term2: 2
+            term1: 5,
+            term2: 3
         });
     });
 
@@ -43,7 +43,7 @@ describe("getExercise", () => {
         })).toEqual({
             operator: "/",
             term1: 6,
-            term2: 2
+            term2: 3
         });
     });
 });

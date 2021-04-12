@@ -9,11 +9,10 @@ interface ExerciseOptions {
 
 function getExercise(options: ExerciseOptions): Exercise {
     const operator = getOperator(options.operatorIndex);
-    const terms = [getRandomNumber(options.max), getRandomNumber(options.max)];
-    let [term1, term2] = terms;
+    let [term1, term2] = [getRandomNumber(options.max), getRandomNumber(options.max)];
 
-    if ((operator === "-" || operator === "/") && term1 < term2) {
-        [term2, term1] = terms;
+    if (operator === "-") {
+        term1 = term1 + term2;
     }
 
     if (operator === "/") {

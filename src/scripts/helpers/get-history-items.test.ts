@@ -19,7 +19,7 @@ describe("getHistoryItems", () => {
             value: "="
         }, {
             value: "3",
-            status: "positive"
+            status: "correct"
         }]);
     });
 
@@ -41,10 +41,10 @@ describe("getHistoryItems", () => {
             value: "="
         }, {
             value: "4",
-            status: "negative"
+            status: "wrong"
         }, {
-            value: "3",
-            status: "positive"
+            value: "(3)",
+            status: "correct"
         }]);
     });
 });

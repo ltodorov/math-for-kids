@@ -19,19 +19,19 @@ function getHistoryItems({ term1, operator, term2, ...rest }: HistoryItemsOption
     ];
 }
 
-function getHistoryItem(value: string, modifier?: HistoryItemStatus): HistoryItem {
+function getHistoryItem(value: string, status?: HistoryItemStatus): HistoryItem {
     return {
         value,
-        status: modifier
+        status
     };
 }
 
 function getItemResult({ result, userAnswer, isCorrect }: HistoryItemResultOptions): HistoryItem[] {
     return isCorrect ? [
-        getHistoryItem(result.toString(), "positive")
+        getHistoryItem(result.toString(), "correct")
     ] : [
-        getHistoryItem(userAnswer.toString(), "negative"),
-        getHistoryItem(result.toString(), "positive")
+        getHistoryItem(userAnswer.toString(), "wrong"),
+        getHistoryItem(`(${result.toString()})`, "correct")
     ];
 }
 
