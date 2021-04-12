@@ -2,7 +2,7 @@
 
 exports[`Updater updateHistory should add correct history item 1`] = `
 <div>
-  <p
+  <li
     class="history__row"
   >
     <span
@@ -25,13 +25,13 @@ exports[`Updater updateHistory should add correct history item 1`] = `
     >
       3
     </span>
-  </p>
+  </li>
 </div>
 `;
 
 exports[`Updater updateHistory should add wrong history item 1`] = `
 <div>
-  <p
+  <li
     class="history__row"
   >
     <span
@@ -59,8 +59,8 @@ exports[`Updater updateHistory should add wrong history item 1`] = `
     >
       (3)
     </span>
-  </p>
-  <p
+  </li>
+  <li
     class="history__row"
   >
     <span
@@ -83,6 +83,6 @@ exports[`Updater updateHistory should add wrong history item 1`] = `
     >
       3
     </span>
-  </p>
+  </li>
 </div>
 `;

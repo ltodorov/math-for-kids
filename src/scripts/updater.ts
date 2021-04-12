@@ -34,7 +34,7 @@ class Updater implements IUpdater {
 
     updateHistory(items: HistoryItem[]) {
         if (this.historyNode) {
-            const rowNode = document.createElement("p");
+            const rowNode = document.createElement("li");
             rowNode.className = "history__row";
             const templateNode = document.createElement("span");
             const historyItemClassName = "history__item";

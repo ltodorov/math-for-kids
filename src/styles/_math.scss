@@ -1,14 +1,16 @@
 .math {
     display: grid;
     justify-content: center;
+    margin-bottom: 1.25em;
 }
 
 .math__title {
     text-align: center;
 }
 
-.math__question {
+.math__problem {
     display: grid;
+    margin-bottom: 1.25em;
     grid-template-columns: repeat(5, auto);
     justify-content: center;
     align-items: center;
@@ -53,7 +55,6 @@
 }
 
 .math__btn {
-    margin: 1em 0;
     border-radius: 2px;
     border: 0;
     padding: 0.5em;
