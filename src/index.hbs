@@ -33,17 +33,17 @@
                 <div class="math__question">
                     <span class="math__field">
                         <label for="term-1" class="math__label">{{mathTask.term1}}</label>
-                        <input type="text" class="math__num" name="term-1" disabled>
+                        <input type="text" class="math__num" name="term-1" id="term-1" disabled>
                     </span>
                     <span class="math__sign operator">+</span>
                     <span class="math__field">
                         <label for="term-2" class="math__label">{{mathTask.term2}}</label>
-                        <input type="text" class="math__num" name="term-2" disabled>
+                        <input type="text" class="math__num" name="term-2" id="term-2" disabled>
                     </span>
                     <span class="math__sign math__sign--equal">=</span>
                     <span class="math__field">
                         <label for="answer" class="math__label">{{mathTask.answer}}</label>
-                        <input type="text" class="math__num" name="answer" placeholder="?" autocomplete="off"
+                        <input type="text" class="math__num" name="answer" id="answer" placeholder="?" autocomplete="off"
                             inputmode="numeric" pattern="[0-9]{1,3}" required>
                     </span>
                 </div>
