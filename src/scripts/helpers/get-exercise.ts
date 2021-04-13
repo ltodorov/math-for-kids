@@ -27,5 +27,6 @@ function getExercise(options: ExerciseOptions): Exercise {
 }
 
 export {
-    getExercise
+    getExercise,
+    ExerciseOptions
 };

@@ -18,6 +18,5 @@ function getParsedQueryParams(search: string): ParsedQuery {
 }
 
 export {
-    ParsedQuery,
     getParsedQueryParams
 };

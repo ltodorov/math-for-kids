@@ -15,7 +15,7 @@ function getHistoryItems({ term1, operator, term2, ...rest }: HistoryItemsOption
         getHistoryItem(operator),
         getHistoryItem(term2.toString()),
         getHistoryItem("="),
-        ...getItemResult(rest)
+        ...getHistoryItemResult(rest)
     ];
 }
 
@@ -26,7 +26,7 @@ function getHistoryItem(value: string, status?: HistoryItemStatus): HistoryItem 
     };
 }
 
-function getItemResult({ result, userAnswer, isCorrect }: HistoryItemResultOptions): HistoryItem[] {
+function getHistoryItemResult({ result, userAnswer, isCorrect }: HistoryItemResultOptions): HistoryItem[] {
     return isCorrect ? [
         getHistoryItem(result.toString(), "correct")
     ] : [

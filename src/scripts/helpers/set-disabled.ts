@@ -1,6 +1,6 @@
-import { DOMNode } from "@scripts/models/dom";
+import { FormElement } from "@scripts/models/dom";
 
-function setDisabled(element: DOMNode | Element | RadioNodeList): void {
+function setDisabled(element: FormElement): void {
     if (element instanceof HTMLButtonElement || element instanceof HTMLInputElement) {
         element.disabled = true;
     }
