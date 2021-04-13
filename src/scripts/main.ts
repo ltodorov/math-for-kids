@@ -41,5 +41,5 @@ formNode?.addEventListener("submit", function onSubmit(event) {
     answerNode instanceof HTMLInputElement && app.verify(answerNode.value);
 }, false);
 
-gtag("js", new Date());
-gtag("config", "G-SZMZLZR7CZ");
+// gtag("js", new Date());
+// gtag("config", "G-SZMZLZR7CZ");

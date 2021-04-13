@@ -1,6 +1,6 @@
 {
     "lang": "bg",
-    "author":"Любомир Тодоров",
+    "author": "Любомир Тодоров",
     "pageTitle": "Математика за деца",
     "pageDescription": "Страница с упражнения по математика за деца",
     "headerImage": "Ръчно рисувано число",
@@ -14,15 +14,17 @@
     "verify": "Провери",
     "credits": {
         "text": "Изображения от",
-        "authors": [{
-            "link": "https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
-            "title": "Листо върху книга",
-            "name": "Джоана Косинска"
-        }, {
-            "link": "https://www.freepik.com/free-vector/hand-drawn-mathematical-symbols_11701566.htm",
-            "title": "Ръчно нарисувани математически символи",
-            "name": "freepick"
-        }]
-    },
-    "legal": "Тази страница използва Google Analytics, който може да използва набор от \"бисквитки\", за да събира информация и създава репорти за използвалзването на страницата без да изпраща лична информация за посетителите към Google."
+        "authors": [
+            {
+                "link": "https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+                "title": "Листо върху книга",
+                "name": "Джоана Косинска"
+            },
+            {
+                "link": "https://www.freepik.com/free-vector/hand-drawn-mathematical-symbols_11701566.htm",
+                "title": "Ръчно нарисувани математически символи",
+                "name": "freepick"
+            }
+        ]
+    }
 }

@@ -1,6 +1,6 @@
 {
     "lang": "en",
-    "author":"Lyubomir Todorov",
+    "author": "Lyubomir Todorov",
     "pageTitle": "Math for kids",
     "pageDescription": "A web page where kids can train their Math skills",
     "headerImage": "A hand drawn number",
@@ -14,15 +14,17 @@
     "verify": "Verify",
     "credits": {
         "text": "Images by",
-        "authors": [{
-            "link": "https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
-            "title": "A leaf on a book",
-            "name": "Joanna Kosinska"
-        }, {
-            "link": "https://www.freepik.com/free-vector/hand-drawn-mathematical-symbols_11701566.htm",
-            "title": "Hand drawn mathematical symbols",
-            "name": "freepick"
-        }]
-    },
-    "legal": "This page is using Google Analytics that may use a set of cookies to collect information and report site usage statistics without personally identifying individual visitors to Google."
+        "authors": [
+            {
+                "link": "https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+                "title": "A leaf on a book",
+                "name": "Joanna Kosinska"
+            },
+            {
+                "link": "https://www.freepik.com/free-vector/hand-drawn-mathematical-symbols_11701566.htm",
+                "title": "Hand drawn mathematical symbols",
+                "name": "freepick"
+            }
+        ]
+    }
 }
