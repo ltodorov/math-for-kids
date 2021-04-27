@@ -15,6 +15,14 @@ module.exports = merge(common, {
           sourceMap: true
         }
       }, {
+        loader: "postcss-loader",
+        options: {
+          sourceMap: true,
+          postcssOptions: {
+            plugins: ["postcss-preset-env"]
+          }
+        }
+      }, {
         loader: "sass-loader",
         options: {
           sourceMap: true
