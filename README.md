@@ -2,6 +2,8 @@
 
 A web page where kids can train their Math skills.
 
+[![CodeQL](https://github.com/ltodorov/math-for-kids/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ltodorov/math-for-kids/actions/workflows/codeql-analysis.yml)
+
 ## Examples
 
 ### Query search params
