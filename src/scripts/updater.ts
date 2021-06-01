@@ -22,7 +22,7 @@ class Updater implements IUpdater {
         this.scoreWrongNode = options.scoreWrongNode;
     }
 
-    updateForm(options: FormOptions) {
+    updateForm(options: FormOptions): void {
         if (this.formNode instanceof HTMLFormElement) {
             const elements = this.formNode.elements;
             setValue(elements.namedItem("term-1"), options.term1.toString());
@@ -32,7 +32,7 @@ class Updater implements IUpdater {
         }
     }
 
-    updateHistory(items: HistoryItem[]) {
+    updateHistory(items: HistoryItem[]): void {
         if (this.historyNode) {
             const rowNode = document.createElement("li");
             rowNode.className = "history__row";
@@ -50,24 +50,24 @@ class Updater implements IUpdater {
         }
     }
 
-    updateImage() {
+    updateImage(): void {
         if (this.imageNode instanceof HTMLImageElement) {
             this.imageNode.src = getNumberImage();
         }
     }
 
-    updateProgress(value: number) {
+    updateProgress(value: number): void {
         if (this.progressNode instanceof HTMLProgressElement) {
             this.progressNode.value = value;
         }
     }
 
-    updateScore(score: Score) {
+    updateScore(score: Score): void {
         setValue(this.scoreCorrectNode, score.correct.toString());
         setValue(this.scoreWrongNode, score.wrong.toString());
     }
 
-    disableSubmit() {
+    disableSubmit(): void {
         if (this.formNode instanceof HTMLFormElement) {
             const elements = this.formNode.elements;
             setDisabled(elements.namedItem("answer"));

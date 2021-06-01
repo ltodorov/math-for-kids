@@ -7,7 +7,7 @@ jest.mock("./helpers/get-result");
 describe("App", () => {
     let app: App;
     let updater: IUpdater;
-    const userAnswer: number = 3;
+    const userAnswer = 3;
 
     beforeEach(() => {
         updater = {

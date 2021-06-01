@@ -3,7 +3,7 @@
  * @param {number} [max=10] The max number to be used
  * @returns {number}
  */
-function getMaxNumber(max: number = 10): number {
+function getMaxNumber(max = 10): number {
     return Math.min(max, 99);
 }
 

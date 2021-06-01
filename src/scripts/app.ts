@@ -31,14 +31,14 @@ class App {
         this.update();
     }
 
-    update() {
+    update(): void {
         this.exercise = getExercise(this.exerciseOptions);
         this.result = getResult(this.exercise);
         this.updater.updateForm(this.exercise);
         this.userAnswer = 0;
     }
 
-    verify(userAnswer: string) {
+    verify(userAnswer: string): boolean {
         this.userAnswer = Number(userAnswer);
         const isCorrect = this.userAnswer === this.result;
         this.setScore(isCorrect);
@@ -62,7 +62,7 @@ class App {
         return isCorrect;
     }
 
-    private setScore(isCorrect: boolean) {
+    private setScore(isCorrect: boolean): void {
         if (isCorrect) {
             this.score.correct += 1;
         } else {

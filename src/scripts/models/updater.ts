@@ -20,7 +20,7 @@ interface UpdaterOptions {
     scoreWrongNode: DOMNode;
 }
 
-interface FormOptions extends Exercise { }
+type FormOptions = Exercise;
 
 interface HistoryItem {
     value: string;
