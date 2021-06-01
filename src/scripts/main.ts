@@ -1,6 +1,6 @@
 import { Updater } from "./updater";
 import { App } from "./app";
-import { gtag } from "./gtag";
+// import { gtag } from "./gtag";
 import { getParsedQueryParams } from "./helpers/get-parsed-query-params";
 import { getMaxNumber } from "./helpers/get-max-number";
 

@@ -4,5 +4,5 @@ declare module "*.svg" {
 }
 
 declare interface Window {
-    dataLayer: any;
+    dataLayer: unknown[];
 }
