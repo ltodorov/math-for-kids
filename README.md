@@ -3,6 +3,7 @@
 A web page where kids can train their Math skills.
 
 [![CodeQL](https://github.com/ltodorov/math-for-kids/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ltodorov/math-for-kids/actions/workflows/codeql-analysis.yml)
+[![Node.js CI](https://github.com/ltodorov/math-for-kids/actions/workflows/node.js.yml/badge.svg)](https://github.com/ltodorov/math-for-kids/actions/workflows/node.js.yml)
 
 ## Examples
 
