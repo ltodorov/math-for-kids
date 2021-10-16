@@ -1,23 +1,23 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+    env: {
+        browser: true,
+        es2021: true
     },
-    "extends": [
+    extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+        ecmaVersion: 13,
+        sourceType: "module"
     },
-    "plugins": [
+    plugins: [
         "@typescript-eslint"
     ],
-    "ignorePatterns": [
+    ignorePatterns: [
         "*.js"
     ],
-    "rules": {
+    rules: {
     }
 };
