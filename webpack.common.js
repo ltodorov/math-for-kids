@@ -19,9 +19,11 @@ module.exports = {
   module: {
     rules: [{
       test: /\.(png|jpe?g|gif|svg|webp)$/i,
+      exclude: /node_modules/,
       type: "asset/resource"
     }, {
       test: /\.hbs$/i,
+      exclude: /node_modules/,
       use: [{
         loader: "handlebars-loader",
         options: {
@@ -30,6 +32,7 @@ module.exports = {
       }]
     }, {
       test: /\.tsx?$/i,
+      exclude: /node_modules/,
       use: [{
         loader: "esbuild-loader",
         options: {
