@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const bg = require("./src/languages/bg.json");
 const en = require("./src/languages/en.json");
 
@@ -29,7 +30,12 @@ module.exports = {
       }]
     }, {
       test: /\.tsx?$/i,
-      use: "ts-loader"
+      use: [{
+        loader: "esbuild-loader",
+        options: {
+          loader: "ts"
+        }
+      }]
     }]
   },
   resolve: {
@@ -50,6 +56,7 @@ module.exports = {
       ...htmlWebpackPluginCommonOptions,
       filename: "index-en.html",
       templateParameters: en
-    })
+    }),
+    new ForkTsCheckerWebpackPlugin()
   ]
 };

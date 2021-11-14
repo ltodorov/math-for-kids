@@ -101,7 +101,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: "ts-jest",
+  // preset: undefined,
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -178,6 +178,7 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
+    "\\.(t|j)sx?$": "@swc/jest",
     "\\.s?css$": "<rootDir>/fileMock.js",
     "\\.svg$": "<rootDir>/fileMock.js"
   },
