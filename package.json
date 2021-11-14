@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/ltodorov/math-for-kids#readme",
   "devDependencies": {
-    "@swc/jest": "^0.2.5",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
