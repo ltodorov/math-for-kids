@@ -1,24 +1,12 @@
-.page {
+.container {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 1em;
     max-width: 40em;
-    min-height: 100vh;
-}
+    min-height: 100%;
 
-.page__header {
-    flex: none;
-}
-
-.page__main {
-    flex: auto;
-}
-
-.page__footer {
-    flex: none;
-    padding: 1.6667em 0;
-    font-size: 0.75em;
-    text-align: center;
-    color: var(--footer-color);
+    &__main {
+        flex: auto;
+    }
 }

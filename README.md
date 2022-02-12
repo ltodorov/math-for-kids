@@ -1,9 +1,17 @@
 # math-for-kids
 
-A web page where kids can train their Math skills.
+A web page where kids can practice Math - addition, subtraction, multiplication and division.
 
 [![CodeQL](https://github.com/ltodorov/math-for-kids/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ltodorov/math-for-kids/actions/workflows/codeql-analysis.yml)
 [![Node.js CI](https://github.com/ltodorov/math-for-kids/actions/workflows/node.js.yml/badge.svg)](https://github.com/ltodorov/math-for-kids/actions/workflows/node.js.yml)
+
+## Pages
+
+1. https://ltodorov.com/math/#addiction
+2. https://ltodorov.com/math/#subtraction
+3. https://ltodorov.com/math/#multiplication
+4. https://ltodorov.com/math/#division
+
 
 ## Examples
 

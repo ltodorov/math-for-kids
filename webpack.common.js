@@ -1,17 +1,23 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const bg = require("./src/languages/bg.json");
 const en = require("./src/languages/en.json");
 
 const htmlWebpackPluginCommonOptions = {
-  template: path.resolve(__dirname, "src", "index.hbs")
+  template: path.resolve(__dirname, "src", "index.hbs"),
+  favicon: path.resolve(__dirname, "src", "favicon.ico"),
+  publicPath: "..",
+  hash: true
 };
 
 module.exports = {
-  entry: "./src/scripts/main.ts",
+  entry: {
+    bundle: "./src/scripts/index.ts",
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "",
     clean: true
@@ -52,14 +58,19 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       ...htmlWebpackPluginCommonOptions,
-      filename: "index.html",
+      filename: "bg/index.html",
       templateParameters: bg,
     }),
     new HtmlWebpackPlugin({
       ...htmlWebpackPluginCommonOptions,
-      filename: "index-en.html",
+      filename: "en/index.html",
       templateParameters: en
     }),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        "src/index.php"
+      ]
+    })
   ]
 };

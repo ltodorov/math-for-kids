@@ -1,0 +1,26 @@
+$duration: 0.2s;
+
+.nav {
+    display: grid;
+    grid-template-columns: repeat(4, min-content);
+    grid-gap: 2em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior: contain;
+    scroll-snap-type: x mandatory;
+    border-bottom: 2px solid var(--accent-color);
+    transition: border-bottom-color $duration;
+
+    &__item {
+        padding: 1em 0;
+        scroll-snap-align: start;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color $duration;
+
+        &--selected,
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+}

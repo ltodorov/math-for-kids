@@ -1,14 +1,14 @@
-.header {
+.masthead {
     display: flex;
     align-items: center;
-    padding: 1em 0;
-}
 
-.header__image {
-    flex: none;
-    margin-inline-end: 1em;
-}
+    &__image {
+        margin-inline-end: 1em;
+    }
 
-.header__title {
-    margin: 0;
+    &__title {
+        margin: 0;
+        flex-grow: 1;
+        line-height: 1.1;
+    }
 }

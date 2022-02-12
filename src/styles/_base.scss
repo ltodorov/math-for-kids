@@ -1,3 +1,9 @@
+@use "variables";
+
+html, body {
+    height: 100%;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -10,12 +16,11 @@ html {
 
 body {
     margin: 0;
-    background:
-        linear-gradient(var(--main-bg-gradient-start), var(--mani-bg-gradient-end)) fixed,
-        var(--main-bg-color) var(--main-bg-image) no-repeat left top fixed;
+    background: linear-gradient(variables.$gradient-start-color, variables.$gradient-stop-color) fixed,
+        variables.$secondary-color variables.$background no-repeat left top fixed;
     background-size: cover;
-    color: var(--main-color);
-    font-family: var(--main-font-family);
+    color: variables.$primary-color;
+    font-family: variables.$main-font-stack;
 }
 
 a {

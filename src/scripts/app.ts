@@ -1,76 +1,45 @@
-import { ExerciseOptions, getExercise } from "./helpers/get-exercise";
-import { getHistoryItems } from "./helpers/get-history-items";
-import { getProgress } from "./helpers/get-progress";
-import { getResult } from "./helpers/get-result";
-import { Exercise } from "./models/exercise";
-import { Score } from "./models/score";
-import { IUpdater } from "./models/updater";
+import { getExercise } from "./helpers/get-exercise";
+import { setValue } from "./helpers/set-value";
+import { ArithmeticOperation, Exercise } from "./models/exercise";
 
-interface AppOptions extends ExerciseOptions {
-    updater: IUpdater;
-    exercisesCount: number;
+interface AppProps {
+    formNode: Element | null;
+    operation: keyof ArithmeticOperation;
 }
 
 class App {
-    updater: IUpdater;
-    exercisesCount: number;
-    exerciseOptions: ExerciseOptions;
+    formNode: Element | null;
     exercise!: Exercise;
-    result!: number;
-    userAnswer!: number;
-    score: Score;
 
-    constructor({ updater, exercisesCount, ...rest }: AppOptions) {
-        this.updater = updater;
-        this.exercisesCount = exercisesCount;
-        this.exerciseOptions = rest;
-        this.score = {
-            correct: 0,
-            wrong: 0
-        };
-        this.update();
+    constructor({ formNode, operation }: AppProps) {
+        this.formNode = formNode;
+        this.update(operation);
     }
 
-    update(): void {
-        this.exercise = getExercise(this.exerciseOptions);
-        this.result = getResult(this.exercise);
-        this.updater.updateForm(this.exercise);
-        this.userAnswer = 0;
-    }
+    update(operation: keyof ArithmeticOperation): void {
+        this.exercise = getExercise({
+            operation,
+        });
 
-    verify(userAnswer: string): boolean {
-        this.userAnswer = Number(userAnswer);
-        const isCorrect = this.userAnswer === this.result;
-        this.setScore(isCorrect);
-        this.updater.updateScore(this.score);
-        const progress = getProgress(this.score);
-        this.updater.updateProgress(progress);
-        this.updater.updateHistory(getHistoryItems({
-            ...this.exercise,
-            result: this.result,
-            userAnswer: this.userAnswer,
-            isCorrect
-        }));
-
-        if (progress < this.exercisesCount) {
-            this.update();
-            this.updater.updateImage();
-        } else {
-            this.updater.disableSubmit();
+        if (this.formNode instanceof HTMLFormElement) {
+            const elements = this.formNode.elements;
+            setValue(elements.namedItem("term-1"), this.exercise.term1.toString());
+            setValue(document.getElementById("operator"), this.exercise.operator);
+            setValue(elements.namedItem("term-2"), this.exercise.term2.toString());
+            setValue(elements.namedItem("answer"), "");
         }
-
-        return isCorrect;
     }
 
-    private setScore(isCorrect: boolean): void {
-        if (isCorrect) {
-            this.score.correct += 1;
+    verify(answerNode: Element | RadioNodeList | null): boolean {
+        if (answerNode instanceof HTMLInputElement &&
+            Number(answerNode.value) === this.exercise.result) {
+            return true;
         } else {
-            this.score.wrong += 1;
+            return false;
         }
     }
 }
 
 export {
-    App
+    App,
 };

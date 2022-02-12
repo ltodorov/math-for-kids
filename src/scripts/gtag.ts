@@ -5,5 +5,5 @@ function gtag(...params: unknown[]): void {
 }
 
 export {
-    gtag
+    gtag,
 };

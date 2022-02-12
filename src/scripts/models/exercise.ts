@@ -1,13 +1,20 @@
-/**
- * Standard arithmetic operators
- */
-type ArithmeticSign = "+" | "-" | "*" | "/";
+interface ArithmeticOperation {
+    addition: "+";
+    subtraction: "-";
+    multiplication: "*";
+    division: "/";
+}
 
 interface Exercise {
     /**
+     * Arithmetic operation name
+     */
+    operation: keyof ArithmeticOperation;
+
+    /**
      * Arithmetic operator
      */
-    operator: ArithmeticSign;
+    operator: ArithmeticOperation[keyof ArithmeticOperation];
 
     /**
      * First number of the expression
@@ -18,9 +25,17 @@ interface Exercise {
      * Second number of the expression
      */
     term2: number;
+
+    /**
+     * Result of the expression
+     */
+    result: number;
 }
 
-export {
-    ArithmeticSign,
-    Exercise
+type Formula = (term1: number, term2: number) => number;
+
+export type {
+    ArithmeticOperation,
+    Exercise,
+    Formula,
 };

@@ -1,0 +1,56 @@
+@use "variables";
+
+.exercise {
+    display: grid;
+    justify-content: center;
+    margin: 2em 0;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__problem {
+        display: grid;
+        margin-bottom: 2em;
+        grid-template-columns: repeat(5, auto);
+        justify-content: center;
+        align-items: center;
+        grid-gap: 0.5em;
+    }
+
+    &__field {
+        position: relative;
+    }
+
+    &__num {
+        border: 1px solid variables.$input-border-color;
+        border-radius: 2px;
+        padding: 0.46875em 0.125em;
+        width: 2.125em;
+        font-size: 2em;
+        font-weight: bold;
+        font-family: variables.$monospace-font-stack;
+        background: variables.$input-background-color;
+        color: variables.$primary-color;
+        text-align: center;
+
+        &:disabled {
+            border-color: variables.$input-disabled-border-color;
+        }
+    }
+
+    &__sign {
+        font-weight: bold;
+        font-size: 2.4em;
+        font-family: variables.$monospace-font-stack;
+    }
+
+    &__btn {
+        border-radius: 2px;
+        border: 0;
+        padding: 0.5em;
+        width: 100%;
+        font-size: 1.25em;
+        line-height: 1.2;
+    }
+}

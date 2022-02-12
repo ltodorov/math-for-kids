@@ -1,0 +1,13 @@
+@use "variables";
+
+.footer {
+    margin-top: 1.6667em;
+    font-size: 0.75em;
+    text-align: center;
+    color: variables.$footer-color;
+
+    &__copy {
+        margin: 0;
+        line-height: 1.5;
+    }
+}

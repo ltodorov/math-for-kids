@@ -1,6 +1,4 @@
-import { FormElement } from "@scripts/models/dom";
-
-function setValue(element: FormElement, value: string): void {
+function setValue(element: Element | RadioNodeList | null, value: string): void {
     if (element instanceof HTMLInputElement) {
         element.value = value;
     } else if (element instanceof HTMLElement) {
@@ -9,5 +7,5 @@ function setValue(element: FormElement, value: string): void {
 }
 
 export {
-    setValue
+    setValue,
 };
