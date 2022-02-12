@@ -8,7 +8,7 @@ A web page where kids can practice Math - addition, subtraction, multiplication 
 ## Demo
 
 ### English
-https://ltodorov.com/math/en/
+https://ltodorov.com/en/
 
 ### Bulgarian
-https://ltodorov.com/math/bg/
+https://ltodorov.com/bg/
