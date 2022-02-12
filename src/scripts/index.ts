@@ -2,10 +2,9 @@ import { App } from "./app";
 import { getAccent } from "./helpers/get-accent";
 import { getParsedOperation } from "./helpers/get-parsed-operation";
 import { setSelected } from "./helpers/set-selected";
-import { gtag } from "./gtag";
+import { setAccent } from "./helpers/set-accent";
 
 import "@styles/index.scss";
-import { setAccent } from "./helpers/set-accent";
 
 const formNode = document.getElementById("form");
 const navNode = document.getElementById("nav");
@@ -46,5 +45,3 @@ function onSubmit(event: SubmitEvent) {
         }
     }
 }
-
-gtag();
