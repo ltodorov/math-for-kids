@@ -12,7 +12,7 @@ $duration: 0.2s;
     transition: border-bottom-color $duration;
 
     &__item {
-        padding: 1em 0;
+        padding: 1em 0.25em;
         scroll-snap-align: start;
         text-transform: uppercase;
         text-decoration: none;
@@ -21,6 +21,10 @@ $duration: 0.2s;
         &--selected,
         &:hover {
             color: var(--accent-color);
+        }
+
+        &:focus-visible {
+            outline-offset: -2px;
         }
     }
 }

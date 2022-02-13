@@ -3,15 +3,15 @@
 .exercise {
     display: grid;
     justify-content: center;
-    margin: 2em 0;
 
     &__title {
+        margin-top: 2em;
         text-align: center;
     }
 
     &__problem {
         display: grid;
-        margin-bottom: 2em;
+        margin-bottom: 0.625em;
         grid-template-columns: repeat(5, auto);
         justify-content: center;
         align-items: center;
