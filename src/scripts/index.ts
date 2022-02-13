@@ -9,6 +9,7 @@ import "@styles/index.scss";
 const formNode = document.getElementById("form");
 const navNode = document.getElementById("nav");
 const imageNode = document.getElementById("image");
+const skipNode = document.getElementById("skip");
 const accentGen = getAccent();
 const app = new App({
     formNode,
@@ -44,4 +45,10 @@ function onSubmit(event: SubmitEvent) {
             });
         }
     }
+}
+
+skipNode?.addEventListener("click", onSkip, false);
+
+function onSkip() {
+    app.update(app.exercise.operation);
 }

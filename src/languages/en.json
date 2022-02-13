@@ -22,6 +22,7 @@
         "answer": "Answer"
     },
     "verify": "Verify",
+    "skip": "Skip",
     "score": "Score",
     "credits": {
         "text": "Images by",
