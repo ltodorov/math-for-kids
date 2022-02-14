@@ -1,11 +1,6 @@
-import { ArithmeticOperation, Formula, Exercise } from "@scripts/models/exercise";
+import { ArithmeticOperation, Formula, Exercise, ExerciseProps } from "@scripts/models/exercise";
 import { getRandomNumber } from "./get-random-number";
 import { isArithmeticOperation } from "./is-arithmetic-operation";
-
-interface ExerciseProps {
-    operation: string;
-    max?: number;
-}
 
 const formulas: {
     [P in keyof ArithmeticOperation]: Formula;
@@ -23,16 +18,19 @@ const operators: ArithmeticOperation = {
     division: "/",
 };
 
-function getExercise(props: ExerciseProps): Exercise {
-    const { operation } = props;
-
+/**
+ * Gets an exercise based on provided argument
+ * @param param0 Exercise configuration object
+ * @returns Exercise
+ */
+function getExercise({ operation, term, max }: ExerciseProps): Exercise {
     if (!isArithmeticOperation(operation)) {
         throw new Error(`Unsupported arithmetical operation ${operation}`);
     }
 
     const operator = operators[operation];
-    let term1 = getRandomNumber(props.max);
-    const term2 = getRandomNumber(props.max);
+    let term1 = getRandomNumber(max);
+    const term2 = term || getRandomNumber(max);
 
     if (operator === "-") {
         term1 = term1 + term2;

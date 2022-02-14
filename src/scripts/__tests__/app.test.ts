@@ -39,7 +39,9 @@ describe("App", () => {
 
     describe("update", () => {
         test("changes the exercise", () => {
-            app.update("division");
+            app.update({
+                operation: "division",
+            });
             expect(term1.value).toBe("1");
             expect(operator.textContent).toBe("/");
             expect(term2.value).toBe("1");

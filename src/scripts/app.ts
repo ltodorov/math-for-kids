@@ -1,25 +1,26 @@
 import { getExercise } from "./helpers/get-exercise";
 import { setValue } from "./helpers/set-value";
-import { ArithmeticOperation, Exercise } from "./models/exercise";
+import { Exercise, ExerciseProps } from "./models/exercise";
 
-interface AppProps {
+interface AppProps extends ExerciseProps {
     formNode: Element | null;
-    operation: keyof ArithmeticOperation;
 }
 
 class App {
     formNode: Element | null;
     exercise!: Exercise;
+    term?: number;
+    max?: number;
 
-    constructor({ formNode, operation }: AppProps) {
+    constructor({ formNode, ...rest }: AppProps) {
         this.formNode = formNode;
-        this.update(operation);
+        this.max = rest.max;
+        this.term = rest.term;
+        this.update(rest);
     }
 
-    update(operation: keyof ArithmeticOperation): void {
-        this.exercise = getExercise({
-            operation,
-        });
+    update(props: ExerciseProps): void {
+        this.exercise = getExercise(props);
 
         if (this.formNode instanceof HTMLFormElement) {
             const elements = this.formNode.elements;

@@ -5,9 +5,26 @@ interface ArithmeticOperation {
     division: "/";
 }
 
+interface ExerciseProps {
+    /**
+     * Arithmetic operation
+     */
+    operation: string;
+
+    /**
+     * Constant value of the second term
+     */
+    term?: number;
+
+    /**
+     * Terms maximum value
+     */
+    max?: number;
+}
+
 interface Exercise {
     /**
-     * Arithmetic operation name
+     * Arithmetic operation
      */
     operation: keyof ArithmeticOperation;
 
@@ -36,6 +53,7 @@ type Formula = (term1: number, term2: number) => number;
 
 export type {
     ArithmeticOperation,
+    ExerciseProps,
     Exercise,
     Formula,
 };

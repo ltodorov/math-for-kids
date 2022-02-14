@@ -25,8 +25,8 @@ const accents: Accent[] = [
 const accentsLen: number = accents.length;
 
 /**
- * Get an accent object
- * @returns {Generator} Tuple with accent image and color
+ * Returns an infinite iterator for getting the accent image and color
+ * @yields The next tuple with values for accent image and color
  */
 function* getAccent(): Generator<Accent, Accent, Accent> {
     let index = 1;

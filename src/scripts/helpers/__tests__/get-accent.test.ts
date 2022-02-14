@@ -14,6 +14,7 @@ describe("getAccent", () => {
         [9, "#f1b363"],
         [0, "#ed9a69"],
         [1, "#ffd05e"],
+        [2, "#eed8c5"],
     ])("returns %s.svg and %s", (index, color) => {
         expect(generator.next().value).toEqual([
             `${index}.svg`,

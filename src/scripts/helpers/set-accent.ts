@@ -6,11 +6,15 @@ interface SetAccentProps {
     value: Accent;
 }
 
+/**
+ * Sets the accent image and color
+ * @param param0 Configuration object
+ */
 function setAccent({
     imageNode,
     navNode,
     value,
-}: SetAccentProps) {
+}: SetAccentProps): void {
     const [image, color] = value;
     if (imageNode instanceof HTMLImageElement) {
         imageNode.src = `../${image}`;

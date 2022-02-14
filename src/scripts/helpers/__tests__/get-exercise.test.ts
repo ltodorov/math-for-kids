@@ -1,3 +1,4 @@
+import { ArithmeticOperation } from "@scripts/models/exercise";
 import { getExercise } from "../get-exercise";
 
 describe("getExercise", () => {
@@ -21,6 +22,20 @@ describe("getExercise", () => {
             term1,
             term2,
             result,
+        });
+    });
+
+    test("returns a fixed value for term2", () => {
+        const operation: keyof ArithmeticOperation = "addition";
+        expect(getExercise({
+            operation,
+            term: 1,
+        })).toEqual({
+            operation,
+            operator: "+",
+            term1: 2,
+            term2: 1,
+            result: 3,
         });
     });
 

@@ -1,6 +1,6 @@
 import { App } from "./app";
 import { getAccent } from "./helpers/get-accent";
-import { getParsedOperation } from "./helpers/get-parsed-operation";
+import { getExerciseProps } from "./helpers/get-exercise-props";
 import { setSelected } from "./helpers/set-selected";
 import { setAccent } from "./helpers/set-accent";
 
@@ -13,7 +13,7 @@ const skipNode = document.getElementById("skip");
 const accentGen = getAccent();
 const app = new App({
     formNode,
-    operation: getParsedOperation(window.location),
+    ...getExerciseProps(window.location),
 });
 
 setSelected(app.exercise.operation);
@@ -21,7 +21,7 @@ setSelected(app.exercise.operation);
 window.addEventListener("hashchange", onHashChange, false);
 
 function onHashChange() {
-    app.update(getParsedOperation(window.location));
+    app.update(getExerciseProps(window.location));
     setSelected(app.exercise.operation);
 }
 
@@ -36,7 +36,11 @@ function onSubmit(event: SubmitEvent) {
         const answerNode = target.elements.namedItem("answer");
 
         if (app.verify(answerNode)) {
-            app.update(app.exercise.operation);
+            app.update({
+                operation: app.exercise.operation,
+                term: app.term,
+                max: app.max,
+            });
 
             setAccent({
                 imageNode,
@@ -50,5 +54,9 @@ function onSubmit(event: SubmitEvent) {
 skipNode?.addEventListener("click", onSkip, false);
 
 function onSkip() {
-    app.update(app.exercise.operation);
+    app.update({
+        operation: app.exercise.operation,
+        term: app.term,
+        max: app.max,
+    });
 }
