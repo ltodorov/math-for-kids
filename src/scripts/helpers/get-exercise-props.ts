@@ -3,7 +3,7 @@ import { isArithmeticOperation } from "./is-arithmetic-operation";
 
 type ParsedQuery = {
     [K in string]: number;
-}
+};
 
 /**
  * Parses the location object and returns configuration

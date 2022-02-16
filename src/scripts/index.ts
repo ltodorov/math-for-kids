@@ -45,7 +45,7 @@ function onSubmit(event: SubmitEvent) {
             setAccent({
                 imageNode,
                 navNode,
-                value: accentGen.next().value
+                value: accentGen.next().value,
             });
         }
     }
