@@ -1,6 +1,6 @@
 import { setSelected } from "../set-selected";
 import { isArithmeticOperation } from "../is-arithmetic-operation";
-import { ArithmeticOperation } from "@scripts/models/exercise";
+import type { ArithmeticOperation } from "@scripts/models/exercise";
 
 describe("setSelected", () => {
     beforeEach(() => {

@@ -1,4 +1,4 @@
-import { Accent } from "@scripts/models/accent";
+import type { Accent } from "@scripts/models/accent";
 import i0 from "@images/numbers/0.svg";
 import i1 from "@images/numbers/1.svg";
 import i2 from "@images/numbers/2.svg";

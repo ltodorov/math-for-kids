@@ -1,4 +1,4 @@
-import { Accent } from "@scripts/models/accent";
+import type { Accent } from "@scripts/models/accent";
 
 interface SetAccentProps {
     imageNode: HTMLElement | null;

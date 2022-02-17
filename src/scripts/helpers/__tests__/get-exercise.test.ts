@@ -1,4 +1,4 @@
-import { ArithmeticOperation } from "@scripts/models/exercise";
+import type { ArithmeticOperation } from "@scripts/models/exercise";
 import { getExercise } from "../get-exercise";
 
 describe("getExercise", () => {

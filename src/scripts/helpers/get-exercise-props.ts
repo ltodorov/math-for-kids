@@ -1,4 +1,4 @@
-import { ExerciseProps } from "@scripts/models/exercise";
+import type { ExerciseProps } from "@scripts/models/exercise";
 import { isArithmeticOperation } from "./is-arithmetic-operation";
 
 type ParsedQuery = {

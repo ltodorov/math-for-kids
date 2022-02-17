@@ -1,6 +1,6 @@
 import { getExercise } from "./helpers/get-exercise";
 import { setValue } from "./helpers/set-value";
-import { Exercise, ExerciseProps } from "./models/exercise";
+import type { Exercise, ExerciseProps } from "./models/exercise";
 
 interface AppProps extends ExerciseProps {
     formNode: Element | null;

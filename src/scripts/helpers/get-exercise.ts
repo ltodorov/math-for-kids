@@ -1,4 +1,4 @@
-import { ArithmeticOperation, Formula, Exercise, ExerciseProps } from "@scripts/models/exercise";
+import type { ArithmeticOperation, Formula, Exercise, ExerciseProps } from "@scripts/models/exercise";
 import { getRandomNumber } from "./get-random-number";
 import { isArithmeticOperation } from "./is-arithmetic-operation";
 
