@@ -22,7 +22,7 @@ const htmlWebpackPluginCommonOptions = (isProd) => ({
     } : false,
 });
 
-module.exports = (isProd) => ({
+module.exports = ({ isProd }) => ({
     entry: {
         bundle: "./src/scripts/index.ts",
     },

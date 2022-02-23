@@ -2,7 +2,9 @@ const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
 
-module.exports = ({ locale = "bg" }) => merge(common(false), {
+module.exports = ({ locale = "bg" }) => merge(common({
+    isProd: false,
+}), {
     mode: "development",
     devtool: "inline-source-map",
     devServer: {
