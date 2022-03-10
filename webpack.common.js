@@ -79,7 +79,10 @@ module.exports = ({ isProd }) => ({
         new ForkTsCheckerWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-                "src/index.php",
+                {
+                    from: "**/*",
+                    context: path.resolve(__dirname, "src", "public"),
+                },
             ],
         }),
     ],
