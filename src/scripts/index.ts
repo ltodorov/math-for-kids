@@ -7,7 +7,6 @@ import { setAccent } from "./helpers/set-accent";
 import "@styles/index.scss";
 
 const formNode = document.getElementById("form");
-const navNode = document.getElementById("nav");
 const imageNode = document.getElementById("image");
 const skipNode = document.getElementById("skip");
 const accentGen = getAccent();
@@ -44,7 +43,7 @@ function onSubmit(event: SubmitEvent) {
 
             setAccent({
                 imageNode,
-                navNode,
+                accentNode: document.body,
                 value: accentGen.next().value,
             });
         }

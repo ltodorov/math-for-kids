@@ -53,5 +53,23 @@
         width: 100%;
         font-size: 1.25em;
         line-height: 1.2;
+
+        &--primary {
+            background: variables.$primary-color;
+            color: variables.$secondary-color;
+
+            &:hover {
+                background: variables.$footer-color;
+            }
+        }
+
+        &--secondary {
+            background: transparent;
+            color: variables.$primary-color;
+
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
     }
 }

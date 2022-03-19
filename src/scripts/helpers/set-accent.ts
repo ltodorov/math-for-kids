@@ -2,7 +2,7 @@ import type { Accent } from "@scripts/models/accent";
 
 interface SetAccentProps {
     imageNode: HTMLElement | null;
-    navNode: HTMLElement | null;
+    accentNode: HTMLElement | null;
     value: Accent;
 }
 
@@ -12,14 +12,14 @@ interface SetAccentProps {
  */
 function setAccent({
     imageNode,
-    navNode,
+    accentNode,
     value,
 }: SetAccentProps): void {
     const [image, color] = value;
     if (imageNode instanceof HTMLImageElement) {
         imageNode.src = `../${image}`;
     }
-    navNode?.style.setProperty("--accent-color", color);
+    accentNode?.style.setProperty("--accent-color", color);
 }
 
 export {

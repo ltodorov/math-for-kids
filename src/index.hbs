@@ -6,17 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{description}}">
     <title>{{title}}</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZMZLZR7CZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-SZMZLZR7CZ', {
-            'anonymize_ip': true,
-        });
-    </script>
 </head>
 
 <body>
@@ -55,8 +44,8 @@
                             autocomplete="off" inputmode="numeric" pattern="[0-9]{1,3}" required>
                     </span>
                 </div>
-                <button type="submit" class="exercise__btn" name="submit">{{verify}}</button>
-                <button type="button" class="exercise__btn" id="skip">{{skip}}</button>
+                <button type="submit" class="exercise__btn exercise__btn--primary" name="submit">{{verify}}</button>
+                <button type="button" class="exercise__btn exercise__btn--secondary" id="skip">{{skip}}</button>
             </form>
         </main>
 
@@ -67,7 +56,7 @@
             <p class="footer__copy">
                 {{credits.text}}
                 {{#each credits.authors}}
-                <a href="{{this.link}}" title="{{this.title}}">{{this.name}}</a>{{#unless @last}},{{/unless}}
+                <a class="footer__link" href="{{this.link}}" title="{{this.title}}">{{this.name}}</a>{{#unless @last}},{{/unless}}
                 {{/each}}
             </p>
         </footer>

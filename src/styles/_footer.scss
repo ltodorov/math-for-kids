@@ -10,4 +10,8 @@
         margin: 0;
         line-height: 1.5;
     }
+
+    &__link:hover {
+        color: variables.$primary-color;
+    }
 }
