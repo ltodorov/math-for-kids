@@ -29,5 +29,8 @@
             "always"
         ]
     },
-    "ignorePatterns": "**/*.js"
+    "ignorePatterns": [
+        "**/*.mjs",
+        "**/*.js"
+    ]
 }
