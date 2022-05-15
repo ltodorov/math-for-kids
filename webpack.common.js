@@ -6,7 +6,7 @@ const bg = require("./src/languages/bg.json");
 const en = require("./src/languages/en.json");
 
 const htmlWebpackPluginCommonOptions = (isProd) => ({
-    template: path.resolve(__dirname, "src", "index.hbs"),
+    template: path.resolve(__dirname, "src", "index.ejs"),
     favicon: path.resolve(__dirname, "src", "favicon.ico"),
     publicPath: "..",
     hash: true,
@@ -37,15 +37,6 @@ module.exports = ({ isProd }) => ({
             test: /\.(png|jpe?g|gif|svg|webp)$/i,
             exclude: /node_modules/,
             type: "asset/resource",
-        }, {
-            test: /\.hbs$/i,
-            exclude: /node_modules/,
-            use: [{
-                loader: "handlebars-loader",
-                options: {
-                    inlineRequires: "@images",
-                },
-            }],
         }, {
             test: /\.tsx?$/i,
             exclude: /node_modules/,
