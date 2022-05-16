@@ -58,7 +58,7 @@
                 <% credits.authors.forEach((credit, index) => { %>
                     <a class="footer__link" href="<%= credit.link %>" title="<%= credit.title %>"><%= credit.name %></a>
                     <% if (index !== credits.authors.length - 1) { %>
-                        ,
+                        <%= credits.separator %>
                     <% } %>
                 <% }) %>
             </p>
