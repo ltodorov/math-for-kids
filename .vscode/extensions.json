@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "dbaeumer.vscode-eslint",
-        "digitalbrainstem.javascript-ejs-support"
+        "dbaeumer.vscode-eslint"
     ]
 }
