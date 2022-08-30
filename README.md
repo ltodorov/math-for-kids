@@ -18,18 +18,18 @@ A web page where kids can practice Math - addition, subtraction, multiplication 
 ## Demo
 
 ### English
-https://ltodorov.com/en/
+https://ltodorov.eu/math/en/
 
 ### Bulgarian
-https://ltodorov.com/bg/
+https://ltodorov.eu/math/bg/
 
 ## Mods
 
 You can use a URL query string to control the expression.
 
-https://ltodorov.com/en/?term=1&max=5<br>
-https://ltodorov.com/en/?term=2<br>
-https://ltodorov.com/en/?max=20
+https://ltodorov.eu/math/en/?term=1&max=5<br>
+https://ltodorov.eu/math/en/?term=2<br>
+https://ltodorov.eu/math/en/?max=20
 
 - `term` assigns a constant value to the second term.
 - `max` changes the maximum value of the terms. Default value is 9.
