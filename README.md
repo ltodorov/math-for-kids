@@ -7,8 +7,8 @@ A web page where kids can practice Math - addition, subtraction, multiplication 
 
 ## Scripts
 
-- `npm run start` - Runs a bundler in development mode. Starts a dev server.
-    - `npm run start -- --env locale=en` - Runs in a different language.
+- `npm run dev` - Runs a bundler in development mode. Starts a dev server.
+    - `npm run dev -- --env locale=en` - Runs in a different language.
 - `npm run build` - Runs a bundler in production mode.
 - `npm run test` - Executes tests.
     - `npm run test -- --coverage` - Generates code coverage.
