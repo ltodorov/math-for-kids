@@ -21,9 +21,6 @@ module.exports = () => merge(common({
         loader: "postcss-loader",
         options: {
           sourceMap: true,
-          postcssOptions: {
-            plugins: ["postcss-preset-env"],
-          },
         },
       }, {
         loader: "sass-loader",

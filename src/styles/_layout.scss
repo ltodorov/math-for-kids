@@ -1,17 +1,6 @@
 @use "variables";
 
-.container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 1em 0;
-    max-width: 40em;
-    min-height: 100%;
-
-    &__main {
-        flex: auto;
-    }
-
+.wrapper {
     @media screen and (min-width: variables.$viewport-breakpoint-small) {
         padding: 1em;
     }

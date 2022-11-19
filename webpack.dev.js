@@ -24,15 +24,12 @@ module.exports = ({ locale = "bg" }) => merge(common({
                         sourceMap: true,
                     },
                 }, {
-                    loader: "postcss-loader",
+                    loader: "sass-loader",
                     options: {
                         sourceMap: true,
-                        postcssOptions: {
-                            plugins: ["postcss-preset-env"],
-                        },
                     },
                 }, {
-                    loader: "sass-loader",
+                    loader: "postcss-loader",
                     options: {
                         sourceMap: true,
                     },

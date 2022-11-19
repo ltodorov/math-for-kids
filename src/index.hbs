@@ -9,38 +9,38 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="masthead">
+    <div class="mx-auto p-4 max-w-xl min-h-full flex flex-col">
+        <header class="masthead flex items-center">
             <img class="masthead__image" id="image" src="@images/numbers/1.svg" alt="{{ header.imageText }}" width="62"
                 height="80">
-            <h1 class="masthead__title">{{ title }}</h1>
+            <h1 class="masthead__title m-0 flex-grow">{{ title }}</h1>
         </header>
 
-        <nav class="nav" id="nav">
-            <h2 class="nav__title visually-hidden">{{ nav.title }}</h2>
+        <nav class="nav grid grid-cols-4 gap-8" id="nav">
+            <h2 class="nav__title sr-only">{{ nav.title }}</h2>
             <a class="nav__item nav__item--selected" href="#addition" title="{{ nav.addition }}">{{ nav.addition }}</a>
             <a class="nav__item" href="#subtraction" title="{{ nav.subtraction }}">{{ nav.subtraction }}</a>
             <a class="nav__item" href="#multiplication" title="{{ nav.multiplication }}">{{ nav.multiplication }}</a>
             <a class="nav__item" href="#division" title="{{ nav.division }}">{{ nav.division }}</a>
         </nav>
 
-        <main class="container__main">
-            <form class="exercise" id="form">
-                <h2 class="exercise__title">{{ mathTask.title }}</h2>
-                <div class="exercise__problem">
-                    <span class="exercise__field">
-                        <label for="term-1" class="visually-hidden">{{ mathTask.term1 }}</label>
-                        <input type="text" class="exercise__num" name="term-1" id="term-1" disabled>
+        <main class="flex-auto">
+            <form class="grid justify-center" id="form">
+                <h2 class="exercise__title text-center">{{ mathTask.title }}</h2>
+                <div class="exercise__problem grid justify-center items-center gap-2">
+                    <span class="relative">
+                        <label for="term-1" class="sr-only">{{ mathTask.term1 }}</label>
+                        <input type="text" class="exercise__num text-center font-bold" name="term-1" id="term-1" disabled>
                     </span>
-                    <span class="exercise__sign" id="operator">+</span>
-                    <span class="exercise__field">
-                        <label for="term-2" class="visually-hidden">{{ mathTask.term2 }}</label>
-                        <input type="text" class="exercise__num" name="term-2" id="term-2" disabled>
+                    <span class="exercise__sign font-bold" id="operator">+</span>
+                    <span class="relative">
+                        <label for="term-2" class="sr-only">{{ mathTask.term2 }}</label>
+                        <input type="text" class="exercise__num text-center font-bold" name="term-2" id="term-2" disabled>
                     </span>
-                    <span class="exercise__sign exercise__sign--equal">=</span>
-                    <span class="exercise__field">
-                        <label for="answer" class="visually-hidden">{{ mathTask.answer }}</label>
-                        <input type="text" class="exercise__num" name="answer" id="answer" placeholder="?"
+                    <span class="exercise__sign exercise__sign--equal font-bold">=</span>
+                    <span class="relative">
+                        <label for="answer" class="sr-only">{{ mathTask.answer }}</label>
+                        <input type="text" class="exercise__num text-center font-bold" name="answer" id="answer" placeholder="?"
                             autocomplete="off" inputmode="numeric" pattern="[0-9]{1,3}" required>
                     </span>
                 </div>
@@ -49,7 +49,7 @@
             </form>
         </main>
 
-        <footer class="footer">
+        <footer class="footer text-center m-0">
             <p class="footer__copy">
                 {{ author }} &copy; 2021-2022 GPL-3.0-or-later
             </p>
