@@ -4,7 +4,7 @@
   "description": "A web page where kids can practice Math - addition, subtraction, multiplication and division.",
   "private": true,
   "engines": {
-    "node": ">=18",
+    "node": ">=16",
     "pnpm": ">=7"
   },
   "scripts": {
