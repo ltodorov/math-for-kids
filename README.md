@@ -14,6 +14,7 @@ A web page where kids can practice Math - addition, subtraction, multiplication 
     - `pnpm run test -- --coverage` - Generates code coverage.
 - `pnpm run lint` - Analyzes the TypeScript code to quickly find problems.
     - `pnpm run lint -- --fix` - Fixes the found problems automatically.
+- `pnpm run all` - Runs lint, test and build.
 
 ## Demo
 
