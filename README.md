@@ -6,14 +6,14 @@ A web page where kids can practice Math - addition, subtraction, multiplication 
 
 ## Scripts
 
-- `pnpm run dev` - Runs a bundler in development mode. Starts a dev server.
-    - `pnpm run dev --env locale=en` - Runs in a different language.
-- `pnpm run build` - Runs a bundler in production mode.
-- `pnpm run test` - Executes tests.
-    - `pnpm run test --coverage` - Generates code coverage.
-- `pnpm run lint` - Analyzes the TypeScript code to quickly find problems.
-    - `pnpm run lint --fix` - Fixes the found problems automatically.
-- `pnpm run all` - Runs lint, test and build.
+- `pnpm dev` - Runs a bundler in development mode. Starts a dev server.
+    - `pnpm dev --env locale=en` - Runs in a different language.
+- `pnpm build` - Runs a bundler in production mode.
+- `pnpm test` - Executes tests.
+    - `pnpm test --coverage` - Generates code coverage.
+- `pnpm lint` - Analyzes the TypeScript code to quickly find problems.
+    - `pnpm lint --fix` - Fixes the found problems automatically.
+- `pnpm all` - Runs lint, test and build.
 
 ## Demo
 
