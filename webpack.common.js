@@ -51,9 +51,6 @@ module.exports = ({ isProd }) => ({
             exclude: /node_modules/,
             use: [{
                 loader: "esbuild-loader",
-                options: {
-                    loader: "ts",
-                },
             }],
         }],
     },
