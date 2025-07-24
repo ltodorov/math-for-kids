@@ -42,6 +42,6 @@ describe("getExercise", () => {
     test("throws an error if unsupported operation", () => {
         expect(() => getExercise({
             operation: "unknown",
-        })).toThrowError("Unsupported arithmetical operation unknown");
+        })).toThrow("Unsupported arithmetical operation unknown");
     });
 });
