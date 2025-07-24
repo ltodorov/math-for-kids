@@ -15,21 +15,13 @@ A web page where kids can practice Math - addition, subtraction, multiplication 
     - `pnpm lint -- --fix` - Fixes the found problems automatically.
 - `pnpm all` - Runs lint, test and build.
 
-## Demo
-
-### English
-https://ltodorov.eu/math/en/
-
-### Bulgarian
-https://ltodorov.eu/math/bg/
-
 ## Mods
 
 You can use a URL query string to control the expression.
 
-https://ltodorov.eu/math/en/?term=1&max=5<br>
-https://ltodorov.eu/math/en/?term=2<br>
-https://ltodorov.eu/math/en/?max=20
+https://{{host}}/math/en/?term=1&max=5<br>
+https://{{host}}/math/en/?term=2<br>
+https://{{host}}/math/en/?max=20
 
 - `term` assigns a constant value to the second term.
 - `max` changes the maximum value of the terms. Default value is 9.
