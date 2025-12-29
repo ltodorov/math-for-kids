@@ -47,6 +47,17 @@ describe("App", () => {
             expect(term2.value).toBe("1");
             expect(answer.value).toBe("");
         });
+
+        test("does not update form when formNode is not HTMLFormElement", () => {
+            app.formNode = document.createElement("div");
+            app.update({
+                operation: "subtraction",
+            });
+            expect(term1.value).toBe("1");
+            expect(operator.textContent).toBe("+");
+            expect(term2.value).toBe("1");
+            expect(answer.value).toBe("");
+        });
     });
 
     describe("verify", () => {
