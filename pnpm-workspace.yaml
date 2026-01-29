@@ -2,3 +2,6 @@ onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
   - unrs-resolver
+overrides:
+  "lodash": "^4.17.23"
+minimumReleaseAge: 4320
