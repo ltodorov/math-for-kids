@@ -46,7 +46,7 @@
     "postcss-preset-env": "^11.5.1",
     "sass": "^1.104.0",
     "ts-jest": "^29.4.12",
-    "typescript": "^7.0.2",
+    "typescript": "^6.0.3",
     "webpack": "^5.110.3",
     "webpack-cli": "^7.2.3",
     "webpack-dev-server": "^6.0.0",
