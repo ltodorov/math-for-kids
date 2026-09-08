@@ -1,37 +1,36 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# For more information see: https://docs.github.com/en/actions/tutorials/build-and-test-code/nodejs
 
 name: Node.js CI
 
-permissions:
-  contents: read
-  pull-requests: write
-
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
+    permissions:
+      contents: read
+      pull-requests: write
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [22.x, 24.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [24.x, 26.x]
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: pnpm/action-setup@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: "pnpm"
-    - name: Install dependencies
-      run: pnpm install
-    - name: Lint, Test and Build
-      run: pnpm all
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: pnpm/setup@v2
+        with:
+          runtime: node@${{ matrix.node-version }}
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint, Test and Build
+        run: pnpm all

@@ -3,8 +3,7 @@ import { getAccent } from "./helpers/get-accent";
 import { getExerciseProps } from "./helpers/get-exercise-props";
 import { setSelected } from "./helpers/set-selected";
 import { setAccent } from "./helpers/set-accent";
-
-import "@styles/index.scss";
+import "@images/bg.webp";
 
 const formNode = document.getElementById("form");
 const imageNode = document.getElementById("image");

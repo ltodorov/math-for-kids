@@ -1,9 +1,30 @@
 const path = require("path");
+const postcss = require("postcss");
+const postcssPresetEnv = require("postcss-preset-env");
+const sass = require("sass");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const bg = require("./src/languages/bg.json");
 const en = require("./src/languages/en.json");
+
+const sassCss = sass.compile(path.resolve(__dirname, "src", "styles", "index.scss"), {
+    style: "compressed",
+}).css;
+const inlineCss = postcss([postcssPresetEnv()]).process(sassCss, {
+    from: path.resolve(__dirname, "src", "styles", "index.scss"),
+}).css;
+
+const getTemplateParameters = (language) => (compilation) => {
+    const backgroundAsset = compilation.getAssets().find(({ info }) =>
+        info.sourceFilename?.endsWith("src/images/bg.webp"));
+    const backgroundImage = backgroundAsset ? `../${backgroundAsset.name}` : "";
+
+    return {
+        ...language,
+        backgroundImage,
+        inlineCss: inlineCss.replace("__BACKGROUND_URL__", backgroundImage),
+    };
+};
 
 const htmlWebpackPluginCommonOptions = (isProd) => ({
     template: path.resolve(__dirname, "src", "index.hbs"),
@@ -66,14 +87,13 @@ module.exports = ({ isProd }) => ({
         new HtmlWebpackPlugin({
             ...htmlWebpackPluginCommonOptions(isProd),
             filename: "bg/index.html",
-            templateParameters: bg,
+            templateParameters: getTemplateParameters(bg),
         }),
         new HtmlWebpackPlugin({
             ...htmlWebpackPluginCommonOptions(isProd),
             filename: "en/index.html",
-            templateParameters: en,
+            templateParameters: getTemplateParameters(en),
         }),
-        new ForkTsCheckerWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {

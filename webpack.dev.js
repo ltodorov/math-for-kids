@@ -13,31 +13,4 @@ module.exports = ({ locale = "bg" }) => merge(common({
         },
         open: [`/${locale}`],
     },
-    module: {
-        rules: [{
-            test: /\.s[ac]ss$/i,
-            exclude: /node_modules/,
-            use: [
-                "style-loader", {
-                    loader: "css-loader",
-                    options: {
-                        sourceMap: true,
-                    },
-                }, {
-                    loader: "postcss-loader",
-                    options: {
-                        sourceMap: true,
-                        postcssOptions: {
-                            plugins: ["postcss-preset-env"],
-                        },
-                    },
-                }, {
-                    loader: "sass-loader",
-                    options: {
-                        sourceMap: true,
-                    },
-                },
-            ],
-        }],
-    },
 });
